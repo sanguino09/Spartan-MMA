@@ -1114,6 +1114,11 @@ a:hover{
 /*---------------------
   Footer
 -----------------------*/
+.gymLogo{
+  max-width: 10vw;
+  max-height: 10vh;
+  border-radius: 40px;
+}
 
 .footer-section {
   background: #000000;

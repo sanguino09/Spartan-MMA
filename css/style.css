@@ -1491,6 +1491,17 @@ a:hover{
 /*---------------------
   Class Timetable Section
 -----------------------*/
+#guion{
+  display: none;
+}
+#brW{
+  display: none;
+}
+@media only screen and (max-width:767px) {
+  #brW{
+    display: block !important;
+  }
+}
 
 .class-timetable-section {
   background: #151515;

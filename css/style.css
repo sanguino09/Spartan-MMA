@@ -3014,6 +3014,9 @@ a:hover{
   .hs-slider .hs-item {
     padding-top: 350px !important;
   }
+  .disciplinaSpartaLogo{
+    display: none !important;
+  }
 
   .offcanvas-menu-overlay {
     position: fixed;

@@ -151,7 +151,7 @@ ol {
 .primary-btn.btn-normal:hover {
   background: #e41c1f;
   border-color: #e41c1f;
-  color:white;
+  color: white;
 }
 
 /* Preloder */
@@ -306,6 +306,8 @@ ol {
 
 .nav-menu {
   text-align: center;
+  min-width: 80vw;
+  margin-left: -15vw;
 }
 
 .nav-menu ul li {
@@ -510,7 +512,7 @@ ol {
   display: flex;
   -ms-flex-line-pack: center;
   align-content: center;
-  padding-top: 255px;
+  padding-top: 235px;
 }
 
 .hs-slider .hs-item .hi-text span {
@@ -1027,22 +1029,22 @@ ol {
 /*---------------------
   Get Touch Section
 -----------------------*/
-.abedul{
-	width:auto !important;
-	height:auto !important;
-	background-color: transparent !important;
-	border-radius: 0 !important;
-	line-height: 2vh !important;
-	margin-right: 1vh !important;
+.abedul {
+  width: auto !important;
+  height: auto !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  line-height: 2vh !important;
+  margin-right: 1vh !important;
 }
-.abedul2{
-  margin-top:-3vh !important;
+.abedul2 {
+  margin-top: -3vh !important;
 }
-a{
-	color:white;
+a {
+  color: white;
 }
-a:hover{
-	color:#e41c1f;
+a:hover {
+  color: #e41c1f;
 }
 .gettouch-section {
   background: #0a0a0a;
@@ -1114,7 +1116,7 @@ a:hover{
 /*---------------------
   Footer
 -----------------------*/
-.gymLogo{
+.gymLogo {
   max-width: 10vw;
   max-height: 10vh;
   border-radius: 40px;
@@ -1236,7 +1238,7 @@ a:hover{
   padding-top: 330px;
 }
 
-.breadcrumb-section-home{
+.breadcrumb-section-home {
   height: 500px;
   padding-top: 230px;
 }
@@ -1496,14 +1498,14 @@ a:hover{
 /*---------------------
   Class Timetable Section
 -----------------------*/
-#guion{
+#guion {
   display: none;
 }
-#brW{
+#brW {
   display: none;
 }
-@media only screen and (max-width:767px) {
-  #brW{
+@media only screen and (max-width: 767px) {
+  #brW {
     display: block !important;
   }
 }
@@ -2266,6 +2268,8 @@ a:hover{
 
 .blog-details-text .blog-details-pic .blog-details-pic-item img {
   min-width: 100%;
+  width: 40vw;
+  height: 40vh;
 }
 
 .blog-details-text .blog-details-desc {
@@ -3014,7 +3018,7 @@ a:hover{
   .hs-slider .hs-item {
     padding-top: 350px !important;
   }
-  .disciplinaSpartaLogo{
+  .disciplinaSpartaLogo {
     display: none !important;
   }
 

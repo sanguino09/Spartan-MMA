@@ -1310,13 +1310,13 @@ a:hover {
   height: 640px;
   padding: 50px 70px 0 70px;
 }
-.about-text > h2{
+.about-text > h2 {
   color: #e41c1f;
 }
-.about-text > h3{
+.about-text > h3 {
   color: whitesmoke;
 }
-.about-text > ul{
+.about-text > ul {
   color: whitesmoke;
 }
 
@@ -3008,20 +3008,23 @@ a:hover {
   }
 }
 
-/* Wide Mobile = 480px */
-/*#spartaNamePhone{
-	display: none;
-}*/
+#spartaNameMobile {
+  display: none;
+}
+#spartaNameMobile {
+  margin-left: -6vw;
+  max-width: 60vw;
+}
 #spartaName {
   margin-left: 4vw;
   margin-top: -7vh;
 }
 @media only screen and (max-width: 767px) {
-  #spartaNamePhone {
+  #spartaNameMobile {
     display: block !important;
   }
   #spartaName {
-    /*display: none;*/
+    display: none !important;
     margin-left: -10vw;
   }
   .hs-slider .hs-item {

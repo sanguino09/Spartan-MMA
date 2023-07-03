@@ -276,9 +276,44 @@
                   <img src="img/disciplinas/grap1.jpg" alt="" />
                 </div>
                 <div class="blog-details-pic-item">
-                  <img src="img/hellFighters.jpg" alt="" />
+                  <img src="img/hellFighters.png" alt="" />
                 </div>
               </div>
+              <div class="gallery-section gallery-page">
+                <div class="gallery">
+                  <div class="grid-sizer"></div>
+                  <div
+                    class="gs-item set-bg"
+                    data-setbg="img/disciplinas/grap1.jpg"
+                  >
+                    <a
+                      href="img/disciplinas/grap1.jpg"
+                      class="thumb-icon image-popup"
+                      ><i class="fa fa-picture-o"></i
+                    ></a>
+                  </div>
+                  <div class="gs-item set-bg" data-setbg="./img/hellFighters.png">
+                    <a
+                      href="./img/hellFighters.png"
+                      class="thumb-icon image-popup"
+                      ><i class="fa fa-picture-o"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <style>
+                .gallery-section {
+                  display: none;
+                }
+                @media only screen and (max-width: 767px) {
+                  .gallery-section {
+                    display: block !important;
+                  }
+                  .blog-details-pic {
+                    display: none !important;
+                  }
+                }
+              </style>
               <!--<div class="blog-details-more-desc">
                 <p>
                   Texto de ejemplo, texto de ejemplo, texto de ejemplo, texto de

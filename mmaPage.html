@@ -197,16 +197,18 @@
 
     <!-- Blog Details Hero Section Begin -->
     <section class="blog-details-hero set-bg" data-setbg="img/volandoDark.png">
-      <a href="#mmaText"><div class="container">
-        <div class="row">
-          <div class="col-lg-8 p-0 m-auto">
-            <div class="bh-text">
-              <h1 style="color: #e41c1f; font-weight: bolder">M.M.A</h1>
-              <h3>Artes Marciales Mixtas</h3>
+      <a href="#mmaText"
+        ><div class="container">
+          <div class="row">
+            <div class="col-lg-8 p-0 m-auto">
+              <div class="bh-text">
+                <h1 style="color: #e41c1f; font-weight: bolder">M.M.A</h1>
+                <h3>Artes Marciales Mixtas</h3>
+              </div>
             </div>
           </div>
-        </div>
-      </div></a>
+        </div></a
+      >
     </section>
     <!-- Blog Details Hero Section End -->
 
@@ -262,6 +264,44 @@
                   <img src="img/mma2.jpg" load="lazy" alt="" />
                 </div>
               </div>
+              <div class="gallery-section gallery-page">
+                <div class="gallery">
+                  <div class="grid-sizer"></div>
+                  <div
+                    class="gs-item set-bg"
+                    data-setbg="img/mma1.jpg"
+                  >
+                    <a
+                      href="img/mma1.jpg"
+                      class="thumb-icon image-popup"
+                      ><i class="fa fa-picture-o"></i
+                    ></a>
+                  </div>
+                  <div
+                    class="gs-item set-bg"
+                    data-setbg="img/mma2.jpg"
+                  >
+                    <a
+                      href="img/mma2.jpg"
+                      class="thumb-icon image-popup"
+                      ><i class="fa fa-picture-o"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+              <style>
+                .gallery-section{
+                  display: none;
+                }
+                @media only screen and (max-width:767px){
+                  .gallery-section{
+                  display: block !important;
+                }  
+                .blog-details-pic{
+                  display: none !important;
+                }
+                }
+              </style>
               <div class="blog-details-desc">
                 <p>
                   <!--Las MMA no solo son emocionantes en el ring, sino que han

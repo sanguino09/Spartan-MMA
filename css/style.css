@@ -1308,7 +1308,16 @@ a:hover {
 .about-text {
   background: #000000;
   height: 640px;
-  padding: 120px 70px 0 70px;
+  padding: 50px 70px 0 70px;
+}
+.about-text > h2{
+  color: #e41c1f;
+}
+.about-text > h3{
+  color: whitesmoke;
+}
+.about-text > ul{
+  color: whitesmoke;
 }
 
 .about-text .section-title {

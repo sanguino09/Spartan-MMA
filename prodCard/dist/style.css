@@ -139,9 +139,8 @@ body {
   background: #8500b4;
 }
 .blue {
-    background: lightblue;
-  }
-
+  background: lightblue;
+}
 
 .product-colors .active:after {
   content: "";
@@ -157,6 +156,9 @@ body {
 
 /* responsive */
 @media (max-width: 1080px) {
+  .textPC {
+    display: none !important;
+  }
   .container {
     height: auto;
   }

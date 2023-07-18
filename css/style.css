@@ -687,7 +687,6 @@ ol {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  
 }
 
 .bs-text.service-banner .bt-tips {
@@ -1412,6 +1411,13 @@ a:hover {
   color: #fefefe;
   letter-spacing: 1px;
   margin-bottom: 20px;
+}
+@media (min-width: 767px) {
+  .ts_slider .ts_item .ti_text {
+    width: 50vw;
+    text-align: center;
+    margin-left: 12vw;
+  }
 }
 
 .ts_slider .ts_item .ti_text h5 {

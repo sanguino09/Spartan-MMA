@@ -1,0 +1,231 @@
+html body {
+  overflow-x: hidden;
+}
+html body .explanation {
+  width: 80%;
+  margin-bottom: 15vh;
+  margin-left: 5vw;
+}
+@media (max-width: 767px) {
+  html body .explanation {
+    margin-left: 0 !important;
+  }
+  html body .explanation .pa {
+    text-align: center;
+  }
+}
+.explanation li {
+  color: #909090;
+}
+.texto {
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+  color: #909090;
+}
+.beneficios {
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+html body .explanation .pa {
+  font-size: 1rem;
+  max-width: 80vw;
+  margin: 2rem 0;
+  margin-top: 2vh;
+  margin-right: -5vw !important;
+  text-align: center !important;
+}
+.columns{
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  margin-bottom: -5vw;
+}
+
+.ul3{
+  margin-right: 5vw;
+}
+
+html body .explanation ul:last-child {
+  margin-bottom: 2rem;
+}
+html body .explanation ul {
+  display: flex;
+  flex-direction: column;
+}
+html body .explanation .ul2 {
+  font-size: x-large;
+}
+html body .explanation ul li {
+  list-style: none;
+  position: relative;
+  margin: 0.5rem 0;
+}
+html body .explanation ul li::before {
+  content: "➡";
+}
+html body .explanation .ul2 li::before {
+  content: "✓";
+}
+.clasesPrivadas h2,
+h3 {
+  color: whitesmoke;
+  text-align: center;
+}
+.clasesPrivadas {
+  margin-top: -5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html body .clasesPrivadas .container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2rem 1.5rem;
+  background: rgb(10, 10, 10);
+  background: linear-gradient(
+    0deg,
+    rgba(10, 10, 10, 1) 0%,
+    rgba(228, 28, 31, 1) 50%,
+    rgba(10, 10, 10, 1) 100%
+  );
+}
+
+form button {
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  border: none;
+  font-weight: bold;
+  font-style: oblique !important;
+}
+
+strong {
+  color: whitesmoke;
+}
+
+.container form {
+  border-radius: 100px;
+}
+@media (min-width: 768px) {
+  html body .clasesPrivadas .container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+html body .clasesPrivadas .container .cta-form {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  html body .clasesPrivadas .container .cta-form {
+    margin-bottom: 0;
+    margin-right: 2rem;
+    text-align: left;
+  }
+}
+html body .clasesPrivadas .container .cta-form h2 {
+  font-size: 1.5rem;
+  width: 100%;
+  max-width: 25ch;
+  margin: 0 auto;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  html body .container .clasesPrivadas .cta-form h2 {
+    text-align: left;
+    margin: 0;
+  }
+}
+html body .container .clasesPrivadas .cta-form p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  width: 100%;
+}
+html .form {
+  align-self: center;
+}
+html .form__input {
+  width: clamp(120px, 50vw, 420px);
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  border: 1px solid #303030;
+  border-radius: 2px;
+  margin: 0.625rem auto;
+  transition: all 250ms;
+  /* When the input field (.form__input) is in focus, 
+     transform the .form__label and change colors*/
+  /* ALSO, if the input field's placeholder is NOT shown (when the input field has content),
+     transform the .form__label and change colors. */
+  /* THIS PART IS IMPORTANT!! */
+  /* The block below hides the placeholder entirely. */
+  /* For all intents and purposes, the placeholder no longer exists. */
+  /* What shows on the input field is only the label*. */
+  /* HOWEVER, the input fields still recognizes that the placeholder exists!*/
+  /* The placeholder is just invisible. We need the placeholder to exist for
+     some weird CSS stuff. If we skip this, we can't make it CSS-only. */
+  /* When the placeholder is NOT shown,
+     style the top border. */
+  /* This makes the top border fade-out when the placeholder disappears. */
+}
+@media (min-width: 768px) {
+  html .form__input {
+    width: clamp(120px, 35vw, 420px);
+  }
+}
+html .form__input:focus {
+  outline: none;
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+html .form__input:not(:-moz-placeholder-shown) + .form__label {
+  transform: translateY(-4.5rem) scale(1);
+  color: #303030;
+}
+html .form__input:focus + .form__label,
+html .form__input:not(:placeholder-shown) + .form__label {
+  transform: translateY(-4.5rem) scale(1);
+  color: #303030;
+}
+html .form__input::-moz-placeholder {
+  display: none;
+  color: transparent;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+  user-select: none; /* Standard syntax */
+}
+html .form__input::placeholder {
+  display: none;
+  color: transparent;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+  user-select: none; /* Standard syntax */
+}
+html .form__input:not(:-moz-placeholder-shown) {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+html .form__input:not(:placeholder-shown) {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+html .form__label {
+  font-size: 1rem;
+  color: #909090;
+  display: block;
+  /* Moves the label on TOP of the placeholder */
+  /* You'll need to change this as needed */
+  transform: translate(1.25rem, -2.5rem);
+  transform-origin: 0 0; /* Used later for transitions */
+  transition: all 500ms;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+  user-select: none; /* Standard syntax */
+  /* THIS PART IS IMPORTANT! */
+  /* This line prevents the label from being selected.*/
+  /* This is crucial because if this line doesn't exist, users can
+     click on the label, instead of the input field. That's bad UX! */
+  pointer-events: none;
+} /*# sourceMappingURL=style2.css.map */

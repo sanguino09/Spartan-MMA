@@ -334,7 +334,10 @@
     <!-- Blog Details Section End -->
 
     <!-- Banner Section Begin -->
-    <section class="banner-section set-bg" data-setbg="img/sumisionSueloAcortadaDark.png">
+    <section
+      class="banner-section set-bg"
+      data-setbg="img/sumisionSueloAcortadaDark.png"
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -355,6 +358,104 @@
       </div>
     </section>
     <!-- Banner Section End -->
+
+    <!-- Tatami Rules Begin -->
+    <style type="text/css">
+      /* List */
+      .tatamiRules ul {
+        counter-reset: index;
+        padding: 0;
+        max-width: 1000px;
+      }
+
+      /* List element */
+      .tatamiRules li {
+        counter-increment: index;
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+        box-sizing: border-box;
+      }
+
+      /* Element counter */
+      .tatamiRules li::before {
+        content: counters(index, ".", decimal-leading-zero);
+        font-size: 1rem;
+        text-align: right;
+        font-weight: bold;
+        min-width: 50px;
+        padding-right: 12px;
+        font-feature-settings: "tnum";
+        font-variant-numeric: tabular-nums;
+        align-self: flex-start;
+        background-image: linear-gradient(to bottom, white, #e41c1f);
+        background-attachment: fixed;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Element separation */
+      .tatamiRules li + li {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .tatamiRulesSection {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      .tatamiRules {
+        width: 80vw;
+        color: whitesmoke;
+      }
+    </style>
+    <section class="choseus-section spad tatamiRulesSection">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <span>Reglas</span>
+          <h2>Etiqueta Tatami</h2>
+        </div>
+      </div>
+      <div class="tatamiRules">
+        <ul>
+          <li>Saluda a tus compañeros y al profesor al entrar al tatami.</li>
+          <li>
+            Sé respetuoso tanto con tu comportamiento como con tu lenguaje,
+            especialmente si hay menores alrededor.
+          </li>
+          <li>Trata a tus compañeros como a ti te gustaría ser tratado.</li>
+          <li>No pises el tatami con calzado de calle.</li>
+          <li>
+            Utiliza chanclas o para ir desde el tatami a los vestuarios y
+            viceversa para no ensuciar el tatami.
+          </li>
+          <li>
+            Las uñas de tus manos y pies deben estar siempre cortas. Puedes
+            hacerte daño o hacerle daño a un compañero.
+          </li>
+          <li>
+            Tu kimono debe estar siempre limpio y no debe oler mal. Debes
+            lavarlo después de cada clase.
+          </li>
+          <li>Está prohibido hacerle daño intencionadamente a alguien.</li>
+          <li>
+            Sé puntual. Si llegas tarde, espera al borde del tatami hasta que el
+            profesor te pida que te unas a la clase.
+          </li>
+          <li>Si necesitas ir al baño durante la clase, avisa al profesor.</li>
+          <li>
+            Si necesitas irte antes de la clase, coméntalo siempre con el
+            profesor.
+          </li>
+          <li>
+            Si estás enfermo o tienes algún síntoma o indicio de estarlo, por
+            favor no vengas a entrenar.
+          </li>
+          <li>Diviértete.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- Tatami Rules End -->
     <!-- Get In Touch Section Begin -->
     <div class="gettouch-section">
       <div class="container">

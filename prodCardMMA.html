@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Merchandising Grappling & Submission</title>
+    <link rel="stylesheet" href="./prodCard/dist/style.css" />
+    <link rel="icon" href="./img/soloCasco.png" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <!DOCTYPE html>
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Merchandising Grappling & Submission</title>
+
+        <!-- Vendor Script -->
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"
+        ></script>
+      </head>
+
+      <body>
+        <div class="container">
+          <div class="imgBx">
+            <img src="./img/mmaMerch.jpeg" alt="" />
+          </div>
+          <div class="details">
+            <div class="content">
+              <h2>
+                Artes Marciales Mixtas<br />
+                <span>Conjunto de uniforme</span>
+              </h2>
+              <p>
+                Las artes marciales mixtas (MMA) son un conjunto de técnicas y
+                estilos de lucha tanto de sumisión (de pie o en el suelo) como
+                de golpeo, permitiendo el uso dentro del octágono de técnicas de
+                boxeo, muay thai, entre otras.<span class="textPC">
+                  Esta disciplina requiere una larga e intensa formación, dando
+                  lugar a peleadores hábiles y preparados para cualquier tipo de
+                  lucha, y actualmente es el deporte de combate de mayor
+                  contacto que existe.
+                </span>
+              </p>
+              <p class="product-colors">
+                Colores:
+                <span
+                  class="black active"
+                  data-color-primary="#000"
+                  data-color-sec="#212121"
+                  data-pic="./img/grapMerch.jpeg"
+                ></span>
+              </p>
+              <h3>Precio: 65€</h3>
+              <a
+                href="https://wa.me/34660737517?text=Hola!%20Estoy%20interesad@%20en%20el%20uniforme%20de%20MMA!"
+                ><button>Comprar</button></a
+              >
+            </div>
+          </div>
+        </div>
+        <footer>
+          <a href="./store.html"><strong><- Volver atrás</strong></a>
+        </footer>
+        <script>
+          // Change The Picture and Associated Element Color when Color Options Are Clicked.
+          $(".product-colors span").click(function () {
+            $(".product-colors span").removeClass("active");
+            $(this).addClass("active");
+            $(".active").css("border-color", $(this).attr("data-color-sec"));
+            $("body").css("background", $(this).attr("data-color-primary"));
+            $(".content h2").css("color", $(this).attr("data-color-sec"));
+            $(".content h3").css("color", $(this).attr("data-color-sec"));
+            $(".container .imgBx").css(
+              "background",
+              $(this).attr("data-color-sec")
+            );
+            $(".container .details button").css(
+              "background",
+              $(this).attr("data-color-sec")
+            );
+            $(".imgBx img").attr("src", $(this).attr("data-pic"));
+          });
+        </script>
+      </body>
+    </html>
+    <!-- partial -->
+  </body>
+</html>

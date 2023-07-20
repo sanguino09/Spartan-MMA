@@ -33,6 +33,25 @@ body {
   transition: 0.3s linear;
 }
 
+.container .imgBx2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background: #212121;
+  transition: 0.3s linear;
+}
+
+.container .imgBx2 img {
+  position: relative;
+  width: 600px;
+  transform: rotate(0deg);
+  left: -50px;
+  transition: 0.9s linear;
+}
+
 .container .imgBx:before {
   content: "Nike";
   position: absolute;
@@ -156,7 +175,7 @@ body {
 
 @media (min-width: 768px) {
   .tallaPhone {
-    display: none !important; 
+    display: none !important;
   }
 
   .tallaPC {
@@ -171,6 +190,13 @@ body {
   .tallaPC {
     display: none !important;
   }
+  .kimClass {
+    width: 30vw;
+  }
+}
+.kimClass {
+  width: 20vw;
+  border-radius: 10px;
 }
 /* responsive */
 @media (max-width: 1080px) {
@@ -182,7 +208,8 @@ body {
   }
 
   .container .imgBx2 {
-  padding: 0px !important;}
+    padding: 0px !important;
+  }
   .container .imgBx {
     padding: 40px;
     box-sizing: border-box;
@@ -192,6 +219,19 @@ body {
     overflow: hidden;
   }
   .container .imgBx img {
+    left: initial;
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+  .container .imgBx2 {
+    padding: 40px;
+    box-sizing: border-box;
+    width: 100% !important;
+    height: auto;
+    text-align: center;
+    overflow: hidden;
+  }
+  .container .imgBx2 img {
     left: initial;
     max-width: 100%;
     transform: rotate(0deg);

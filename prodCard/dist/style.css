@@ -180,6 +180,9 @@ body {
   .container {
     height: auto;
   }
+
+  .container .imgBx2 {
+  padding: 0px !important;}
   .container .imgBx {
     padding: 40px;
     box-sizing: border-box;

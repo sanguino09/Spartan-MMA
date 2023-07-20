@@ -154,6 +154,24 @@ body {
   top: -5px;
 }
 
+@media (min-width: 768px) {
+  .tallaPhone {
+    display: none !important; 
+  }
+
+  .tallaPC {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  .tallaPhone {
+    display: block;
+  }
+
+  .tallaPC {
+    display: none !important;
+  }
+}
 /* responsive */
 @media (max-width: 1080px) {
   .textPC {
@@ -174,8 +192,8 @@ body {
     left: initial;
     max-width: 100%;
     transform: rotate(0deg);
-    
   }
+
   .details {
     width: 100% !important;
     height: auto;

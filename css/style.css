@@ -2649,7 +2649,7 @@ a:hover {
     display: none !important;
   }
   .kimClass {
-    width: 40vw;
+    width: 60vw !important;
   }
 }
 .kimClass {

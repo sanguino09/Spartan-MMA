@@ -2640,7 +2640,22 @@ a:hover {
   display: inline-block;
   position: relative;
 }
+@media (max-width: 767px) {
+  .tallaPhone {
+    display: block;
+  }
 
+  .tallaPC {
+    display: none !important;
+  }
+  .kimClass {
+    width: 40vw;
+  }
+}
+.kimClass {
+  width: 20vw;
+  border-radius: 10px;
+}
 .contact-widget .cw-text ul li:after {
   position: absolute;
   right: -18px;

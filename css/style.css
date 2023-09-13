@@ -2649,11 +2649,12 @@ a:hover {
     display: none !important;
   }
   .kimClass {
-    width: 200px !important;
+    width:300px !important;
+    margin-bottom: 20px;
   }
 }
 .kimClass {
-  width: 20vw;
+  width: 40vw;
   border-radius: 10px;
 }
 .contact-widget .cw-text ul li:after {

@@ -53,7 +53,7 @@ body {
 }
 
 .container .imgBx:before {
-  content: "Nike";
+  content: "";
   position: absolute;
   top: 0px;
   left: 24px;

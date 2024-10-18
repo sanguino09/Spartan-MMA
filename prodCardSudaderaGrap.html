@@ -1,0 +1,114 @@
+
+    <!-- partial:index.partial.html -->
+    <!DOCTYPE html>
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Merchandising Grappling & Submission</title>
+        <link rel="stylesheet" href="./prodCard/dist/style.css" />
+        <link rel="icon" href="./img/soloCasco.png" />
+        <!-- Vendor Script -->
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"
+        ></script>
+      </head>
+
+      <body>
+        <div class="container" >
+          <div class="imgBx " >
+            <img src="./img/sudaderas_sparta/grap/sudadera_grap_negra.jpeg" alt="" />
+          </div>
+          <div class="details">
+            <div class="content">
+              <h2>
+                Sparta Hellfighters<br />
+                <span>Merchandising</span>
+              </h2>
+              <p>
+                Tejido de 330g de alta calidad.
+              </p>
+              <p class="product-colors">
+                Colores:
+                <span
+                  class="black active"
+                  data-color-primary="#000"
+                  data-color-sec="#212121"
+                  data-pic="./img/sudaderas_sparta/grap/sudadera_grap_negra2.jpeg"
+                ></span>
+                <span
+                  class="white"
+                  data-color-primary="#FFFDD0"
+                  data-color-sec="#fffff"
+                  data-pic="./img/sudaderas_sparta/grap/sudadera_grap_blanca.jpeg"
+                ></span>
+                <span
+                  class="olive"
+                  data-color-primary="#6a760c"
+                  data-color-sec="#fffff"
+                  data-pic="./img/sudaderas_sparta/grap/sudadera_grap_verde.jpeg"
+                ></span>
+                <span
+                  class="red"
+                  data-color-primary="#FF0000"
+                  data-color-sec="#FF0000"
+                  data-pic="./img/sudaderas_sparta/grap/sudadera_grap_roja.jpeg"
+                ></span>
+                <span
+                  class="blue"
+                  data-color-primary="#0000ff"
+                  data-color-sec="#0000ff"
+                  data-pic="./img/sudaderas_sparta/grap/sudadera_grap_azul.jpeg"
+                ></span>
+                <span
+                  class="pink"
+                  data-color-primary="#AA336A"
+                  data-color-sec="#AA336A"
+                  data-pic="./img/sudaderas_sparta/grap/sudadera_grap_rosa.jpeg"
+                ></span>
+              </p>
+              <h3>Precio: 50€</h3>
+              <h6>+ gastos de envío</h6>
+              <a
+                href="https://wa.me/34628689601?text=Hola!%20Estoy%20interesad@%20en%20la%20sudadera%20de%20Sparta%20Hellfighters!"
+                ><button>Comprar</button></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          <a
+            href="./store.html"
+            style="-webkit-text-stroke: 1px black; font-size: large"
+            ><strong><- Volver atrás</strong></a
+          >
+        </footer>
+        <script>
+          // Change The Picture and Associated Element Color when Color Options Are Clicked.
+          $(".product-colors span").click(function () {
+            $(".product-colors span").removeClass("active");
+            $(this).addClass("active");
+            $(".active").css("border-color", $(this).attr("data-color-sec"));
+            $("body").css("background", $(this).attr("data-color-primary"));
+            $(".content h2").css("color", $(this).attr("data-color-sec"));
+            $(".content h3").css("color", $(this).attr("data-color-sec"));
+            $(".container .imgBx").css(
+              "background",
+              $(this).attr("data-color-sec")
+            );
+            $(".container .details button").css(
+              "background",
+              $(this).attr("data-color-sec")
+            );
+            $(".imgBx img").attr("src", $(this).attr("data-pic"));
+          });
+        </script>
+      </body>
+    </html>
+    <!-- partial -->
+  </body>
+</html>

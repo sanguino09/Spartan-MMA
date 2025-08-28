@@ -57,16 +57,18 @@
     });
 
     // QR option and overlay
-    $('.nav-menu > ul li, .canvas-menu > ul li').filter(function () {
-        return $(this).text().trim() === 'QR';
-    }).remove();
-    var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
-    $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
-    var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
-    $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
-    var qrNavItem = '<li><a href="#" class="qr-nav">QR</a></li>';
-    $('.nav-menu ul').append(qrNavItem);
-    $('.canvas-menu ul').append(qrNavItem);
+    function handleQrMenu(selector) {
+        var $menu = $(selector);
+        $menu.find('li').filter(function () {
+            return $(this).text().trim() === 'QR';
+        }).remove();
+        if ($menu.find('.qr-nav').length === 0) {
+            $menu.append('<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>');
+        }
+    }
+    handleQrMenu('.nav-menu > ul');
+    handleQrMenu('.canvas-menu > ul');
+
     var qrOverlay = '<div id="qr-overlay"><div class="qr-content"><img src="img/spartamma_qr.jpeg" alt="QR Sparta MMA"><p>Usa este enlace para entrar en la academia en MAAT y reservar <a href="https://maat-app.link/olDAAYpz7Vb" target="_blank">https://maat-app.link/olDAAYpz7Vb</a></p></div></div>';
     $('body').append(qrOverlay);
 
@@ -85,6 +87,7 @@
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap'
     });
+    handleQrMenu('#mobile-menu-wrap ul');
 
     /*------------------
         Carousel Slider

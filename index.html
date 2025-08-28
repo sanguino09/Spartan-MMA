@@ -34,6 +34,55 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <style>
+      @keyframes slides {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 30px 0px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before, .logos:after {
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 250px;
+  height: 100%;
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0), rgb(0, 0, 0));
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0), rgb(0, 0, 0));
+}
+
+.logo_items {
+  display: inline-block;
+  animation: 50s slides infinite linear;
+}
+
+.logos:hover .logo_items {
+  animation-play-state: paused;
+}
+
+.logo_items img{
+  height: 200px;
+}
+    </style>
   </head>
 
   <body>
@@ -303,8 +352,36 @@
                 <a style="color: #e41c1f">disfrutar y liberar el estrés</a>.
               </p>
             </div>
+            <div><br></div>
           </div>
-          <br />
+          <div class="col-lg-12">
+            <div class="section-title">
+              <span>MARCAS</span>
+              <h2>Los mejores colaboradores</h2>
+            </div>
+          </div>
+        </div>
+          <div class="logos">
+            <div class="logo_items">
+              <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
+              <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
+
+            </div>
+
+          </div>
           <div style="text-align: center; width: 100%">
             <h2 style="color: whitesmoke">
               En este equipo el verdadero protagonista eres TÚ
@@ -399,7 +476,7 @@
             <div class="class-item">
               <div class="ci-pic">
                 <a href="./kidsPage.html"
-                  ><img src="img/disciplinas/mats.jpg" load="lazy" alt=""
+                  ><img src="img/spartan_kids.png" load="lazy" alt=""
                 /></a>
               </div>
               <div class="ci-text">
@@ -651,7 +728,7 @@
         </div>
       </div>
     </div>
-    (<!-- Get In Touch Section End -->
+    <!-- Get In Touch Section End -->
 
     <!-- Brands Section Begin -->
     <!--

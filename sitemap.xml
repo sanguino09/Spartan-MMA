@@ -86,4 +86,10 @@
         <changefreq>always</changefreq>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>https://www.spartamma.es/extrasPage.html</loc>
+        <lastmod>2023-07-06</lastmod>
+        <changefreq>always</changefreq>
+        <priority>0.5</priority>
+    </url>
 </urlset>

@@ -35,62 +35,62 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <style>
-      @keyframes slides {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
+      .logos {
+        overflow: hidden;
+        padding: 30px 0;
+        white-space: nowrap;
+        position: relative;
+      }
 
-.logos {
-  overflow: hidden;
-  padding: 30px 0px;
-  white-space: nowrap;
-  position: relative;
-}
+      .logos:before,
+      .logos:after {
+        position: absolute;
+        top: 0;
+        content: '';
+        width: 250px;
+        height: 100%;
+        z-index: 2;
+      }
 
-.logos:before, .logos:after {
-  position: absolute;
-  top: 0;
-  content: '';
-  width: 250px;
-  height: 100%;
-  z-index: 2;
-}
+      .logos:before {
+        left: 0;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+      }
 
-.logos:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(0,0,0,0), rgb(0, 0, 0));
-}
+      .logos:after {
+        right: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+      }
 
-.logos:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0), rgb(0, 0, 0));
-}
+      .logos__track {
+        display: flex;
+        animation: scroll 40s linear infinite;
+        will-change: transform;
+      }
 
-.logo_items {
-  display: inline-block;
-  animation: 50s slides infinite linear;
-  will-change: transform;
-}
+      .logos:hover .logos__track {
+        animation-play-state: paused;
+      }
 
-@media (hover: hover) {
-  .logos:hover .logo_items {
-    animation-play-state: paused;
-  }
-}
+      .logos__track img {
+        height: 200px;
+        margin: 0 40px;
+      }
 
-@media (max-width: 768px) {
-  .logo_items {
-    animation-duration: 25s;
-  }
-}
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
 
-.logo_items img{
-  height: 200px;
-}
+      @media (max-width: 768px) {
+        .logos__track {
+          animation-duration: 4s;
+        }
+      }
     </style>
   </head>
 
@@ -377,25 +377,13 @@
           </div>
         </div>
           <div class="logos">
-            <div class="logo_items">
+            <div class="logos__track" id="logos-track">
               <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
               <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
               <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
               <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
               <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
-
             </div>
-
           </div>
           <div style="text-align: center; width: 100%">
             <h2 style="color: whitesmoke">
@@ -951,7 +939,13 @@
     <script src="js/masonry.pkgd.min.js"></script>
     <script src="js/jquery.barfiller.js"></script>
     <script src="js/jquery.slicknav.js"></script>
-      <script src="js/owl.carousel.min.js"></script>
-      <script src="js/main.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      const track = document.getElementById('logos-track');
+      if (track) {
+        track.innerHTML += track.innerHTML;
+      }
+    </script>
   </body>
 </html>

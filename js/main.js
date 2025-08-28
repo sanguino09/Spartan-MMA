@@ -57,6 +57,8 @@
     });
 
     // QR option and overlay
+    var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
+    $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
     var qrNavItem = '<li><a href="#" class="qr-nav">QR</a></li>';
     $('.nav-menu ul').append(qrNavItem);
     $('.canvas-menu ul').append(qrNavItem);

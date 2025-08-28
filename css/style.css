@@ -3546,3 +3546,17 @@ a:hover {
 #qr-overlay a {
   color: #e41c1f;
 }
+
+@media (min-width: 992px) {
+  #qr-overlay {
+    background: #f0f0f0;
+  }
+
+  #qr-overlay .qr-content {
+    color: #000;
+  }
+
+  #qr-overlay img {
+    max-width: 300px;
+  }
+}

@@ -23,6 +23,42 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="stylesheet" href="css/style2.css" type="text/css" />
+    <style>
+      /* Reduce espacio entre la explicación y el horario */
+.blog-details-title .explanation {
+  margin-bottom: 20px; /* antes podría ser mucho mayor */
+}
+.blog-details-title ul {
+  margin-bottom: 10px; /* reduce el espacio debajo de la lista */
+}
+    #kidsText {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block;
+  max-width: 100%;
+}
+#kidsText .explanation {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block;
+  max-width: 700px;
+}
+
+#kidsText .explanation,
+#kidsText .texto {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #kidsText {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+    </style>
   </head>
 
   <body>
@@ -130,7 +166,7 @@
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
-    <section class="blog-details-hero set-bg" data-setbg="./img/disciplinas/mats.jpg">
+    <section class="blog-details-hero set-bg" data-setbg="./img/spartan_kids.png">
       <a href="#kidsText">
         <div class="container">
           <div class="row">
@@ -152,47 +188,13 @@
         <div class="row">
           <div class="col-lg-8 p-0 m-auto">
             <div class="blog-details-text">
-              <div id="kidsText" class="blog-details-title">
-                <h5>Spartan Kids</h5>
-                <p><b>¡Diversión, disciplina y deporte para los más pequeños!</b></p>
-                <p>
-                  Nuestro programa Spartan Kids introduce a los niños en las artes
-                  marciales de una manera segura y entretenida. A través de juegos
-                  y ejercicios, desarrollan coordinación, respeto y confianza en
-                  sí mismos mientras aprenden técnicas básicas.
-                </p>
-                <p>
-                  Las clases están diseñadas para todas las edades y niveles. Los
-                  entrenadores de Sparta MMA guían a cada alumno para que mejore
-                  su forma física y aprenda valores esenciales como la
-                  perseverancia y el trabajo en equipo.
-                </p>
-                <ul>
-                  <li>Mejora la coordinación y el equilibrio.</li>
-                  <li>Fomenta el respeto y la disciplina.</li>
-                  <li>Aumenta la confianza y la autoestima.</li>
-                </ul>
-              </div>
-              <div class="blog-details-pic">
-                <div class="blog-details-pic-item">
-                  <img src="img/disciplinas/mats.jpg" alt="" />
-                </div>
-                <div class="blog-details-pic-item">
-                  <img src="img/disciplinas/grap2.jpg" alt="" />
-                </div>
-                <div class="blog-details-pic-item">
-                  <img
-                    src="https://images.pexels.com/photos/4427450/pexels-photo-4427450.jpeg"
-                    alt="Niños entrenando artes marciales"
-                  />
-                </div>
-                <div class="blog-details-pic-item">
-                  <img
-                    src="https://images.pexels.com/photos/4427435/pexels-photo-4427435.jpeg"
-                    alt="Práctica de artes marciales para niños"
-                  />
-                </div>
-              </div>
+              <!-- ...existing code... -->
+<div id="kidsText" class="blog-details-title">
+  
+</div>
+<!-- ...existing code... -->
+              
+            
             </div>
           </div>
         </div>
@@ -201,7 +203,7 @@
     <!-- Details Section End -->
 
     <!-- Timetable Section Begin -->
-    <section class="class-timetable-section spad">
+    <section style="margin-top:-200px" class="class-timetable-section spad">
       <div class="container">
         <div class="row">
           <div class="col-lg-7">
@@ -260,25 +262,7 @@
         </ul>
         <br /><br />
       </div>
-      <div class="container">
-        <div class="cta-form">
-          <h3>Reserva ya tu clase privada</h3>
-          <p>Escuela de Artes Marciales en Toledo - Sparta MMA</p>
-        </div>
-        <form action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="d1ba759c-c0d9-42e0-853e-7d3645a10102" />
-          <input type="hidden" name="subject" value="Nueva Reserva de Clase Privada Spartan Kids" />
-          <input type="text" placeholder="Name" class="form__input" name="nombre" id="name" />
-          <input type="hidden" name="from_name" value="Notificación" />
-          <input type="hidden" name="redirect" value="https://www.spartamma.es/" />
-          <label for="name" class="form__label">Nombre</label>
-          <input type="email" placeholder="Email" class="form__input" id="email" name="email" />
-          <label for="email" class="form__label">Correo</label>
-          <input type="number" placeholder="Subject" class="form__input" id="subject" name="teléfono" />
-          <label for="subject" class="form__label">Teléfono</label>
-          <button type="submit">Reservar</button>
-        </form>
-      </div>
+      
     </section>
     <!-- Private Classes Section End -->
 

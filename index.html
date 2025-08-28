@@ -73,10 +73,19 @@
 .logo_items {
   display: inline-block;
   animation: 50s slides infinite linear;
+  will-change: transform;
 }
 
-.logos:hover .logo_items {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .logos:hover .logo_items {
+    animation-play-state: paused;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo_items {
+    animation-duration: 25s;
+  }
 }
 
 .logo_items img{

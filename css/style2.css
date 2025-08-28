@@ -198,6 +198,24 @@ html .form__input::-moz-placeholder {
   -moz-user-select: none;
   user-select: none; /* Standard syntax */
 }
+
+/* Extras page */
+.single-blog-item .extra-img {
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto 15px;
+  display: block;
+  border-radius: 5px;
+}
+
+.single-blog-item p {
+  color: #c4c4c4;
+  margin-top: 10px;
+}
+
+.single-blog-item .primary-btn.pricing-btn {
+  margin-top: 15px;
+}
 html .form__input::placeholder {
   display: none;
   color: transparent;

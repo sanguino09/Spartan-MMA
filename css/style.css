@@ -933,6 +933,16 @@ ol {
   position: relative;
 }
 
+.pricing-section .ps-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricing-section .ps-item ul {
+  flex-grow: 1;
+}
+
 .ps-item:hover {
   background: #ffffff;
   border-color: #ffffff;

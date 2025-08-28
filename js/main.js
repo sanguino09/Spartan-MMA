@@ -197,6 +197,9 @@
 
     $('.table-controls ul li').on('click', function () {
         var tsfilter = $(this).data('tsfilter');
+        if (tsfilter === undefined) {
+            return;
+        }
         $('.table-controls ul li').removeClass('active');
         $(this).addClass('active');
 

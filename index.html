@@ -35,88 +35,16 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <style>
-
-      .logos {
-        overflow: hidden;
-        padding: 30px 0;
-        white-space: nowrap;
-        position: relative;
-      }
-
-      @keyframes slides {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
-      .logos:before,
-      .logos:after {
-        position: absolute;
-        top: 0;
-        content: '';
-        width: 250px;
-        height: 100%;
-        z-index: 2;
-      }
-
-      .logos:before {
-        left: 0;
-        background: linear-gradient(to left, rgba(0, 0, 0, 0), rgb(0, 0, 0));
-      }
-
-      .logos:after {
-        right: 0;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));
-      }
-
-      .logos__track {
+      .brand-carousel .brand-item {
         display: flex;
-        animation: scroll 40s linear infinite;
-        will-change: transform;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
       }
 
-
-      .logos:hover .logos__track {
-        animation-play-state: paused;
-      }
-
-.logo_items {
-  display: inline-block;
-  animation: slides 50s linear infinite;
-  will-change: transform;
-}
-
-
-      .logos__track img {
-        height: 200px;
-        margin: 0 40px;
-      }
-
-
-      @keyframes scroll {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-
-@media (max-width: 768px) {
-  .logo_items {
-    animation-duration: 10s;
-  }
-}
-
-
-      @media (max-width: 768px) {
-        .logos__track {
-          animation-duration: 4s;
-        }
+      .brand-carousel .brand-item img {
+        max-height: 100px;
+        width: auto;
       }
     </style>
   </head>
@@ -403,24 +331,23 @@
             </div>
           </div>
         </div>
-          <div class="logos">
-            <div class="logos__track" id="logos-track">
-              <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
-
-
-              <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
-              <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
-
-
-            </div>
+        <div class="brand-carousel owl-carousel">
+          <div class="brand-item">
+            <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
           </div>
+          <div class="brand-item">
+            <img src="./img/marcas_patch4gi.jpg" alt="Patch4Gi" class="img-fluid" loading="lazy" />
+          </div>
+          <div class="brand-item">
+            <img src="./img/marcas_stronghero.png" alt="Strongest Hero" class="img-fluid" loading="lazy" />
+          </div>
+          <div class="brand-item">
+            <img src="./img/marcas_zebra.jpg" alt="Zebra" class="img-fluid" loading="lazy" />
+          </div>
+          <div class="brand-item">
+            <img src="./img/marcas_custom.png" alt="Custom Fighters" class="img-fluid" loading="lazy" />
+          </div>
+        </div>
           <div style="text-align: center; width: 100%">
             <h2 style="color: whitesmoke">
               En este equipo el verdadero protagonista eres TÚ
@@ -977,11 +904,5 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script>
-      const track = document.getElementById('logos-track');
-      if (track) {
-        track.innerHTML += track.innerHTML;
-      }
-    </script>
   </body>
 </html>

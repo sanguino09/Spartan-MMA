@@ -149,6 +149,23 @@
     });
 
     /*------------------
+        Brand Slider
+    --------------------*/
+    $('.brand-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        autoplay: true,
+        autoplayTimeout: 1500,
+        autoplayHoverPause: true,
+        responsive: {
+            0: { items: 2 },
+            576: { items: 3 },
+            768: { items: 4 },
+            992: { items: 5 }
+        }
+    });
+
+    /*------------------
         Image Popup
     --------------------*/
     $('.image-popup').magnificPopup({

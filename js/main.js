@@ -56,9 +56,24 @@
         gutter: 10
     });
 
+    // QR option and overlay
+    var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
+    $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
+    var qrOverlay = '<div id="qr-overlay"><div class="qr-content"><img src="img/spartamma_qr.jpeg" alt="QR Sparta MMA"><p>Usa este enlace para entrar en la academia en MAAT y reservar <a href="https://maat-app.link/olDAAYpz7Vb" target="_blank">https://maat-app.link/olDAAYpz7Vb</a></p></div></div>';
+    $('body').append(qrOverlay);
+
+    $(document).on('click', '.qr-nav', function (e) {
+        e.preventDefault();
+        $('#qr-overlay').fadeIn();
+    });
+
+    $('#qr-overlay').on('click', function () {
+        $('#qr-overlay').fadeOut();
+    });
+
     /*------------------
-		Navigation
-	--------------------*/
+                Navigation
+        --------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap'
     });

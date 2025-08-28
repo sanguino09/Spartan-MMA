@@ -57,6 +57,11 @@
     });
 
     // QR option and overlay
+    $('.nav-menu > ul li, .canvas-menu > ul li').filter(function () {
+        return $(this).text().trim() === 'QR';
+    }).remove();
+    var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
+    $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
     var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
     $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
     var qrNavItem = '<li><a href="#" class="qr-nav">QR</a></li>';

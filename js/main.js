@@ -85,7 +85,7 @@
         Carousel Slider
     --------------------*/
     var hero_s = $(".hs-slider");
-    hero_s.owlCarousel({
+    var heroConfig = {
         loop: true,
         margin: 0,
         nav: true,
@@ -94,10 +94,19 @@
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: false
-    });
+        autoHeight: false
+    };
+
+    if ($(window).width() < 768) {
+        heroConfig.autoplay = true;
+        heroConfig.smartSpeed = 600;
+        heroConfig.autoplayTimeout = 3000;
+    } else {
+        heroConfig.smartSpeed = 1200;
+        heroConfig.autoplay = false;
+    }
+
+    hero_s.owlCarousel(heroConfig);
 
     /*------------------
         Team Slider

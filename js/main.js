@@ -62,11 +62,6 @@
     }).remove();
     var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
     $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
-    var qrNavItem = '<li><a href="#" class="qr-nav" aria-label="Código QR"><i class="fa fa-qrcode"></i></a></li>';
-    $('.nav-menu > ul, .canvas-menu > ul').append(qrNavItem);
-    var qrNavItem = '<li><a href="#" class="qr-nav">QR</a></li>';
-    $('.nav-menu ul').append(qrNavItem);
-    $('.canvas-menu ul').append(qrNavItem);
     var qrOverlay = '<div id="qr-overlay"><div class="qr-content"><img src="img/spartamma_qr.jpeg" alt="QR Sparta MMA"><p>Usa este enlace para entrar en la academia en MAAT y reservar <a href="https://maat-app.link/olDAAYpz7Vb" target="_blank">https://maat-app.link/olDAAYpz7Vb</a></p></div></div>';
     $('body').append(qrOverlay);
 

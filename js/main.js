@@ -227,19 +227,32 @@ function unfade(element) {
 }
 
 
-const table_madrid = document.getElementById('madrid_table');
+const table_limite = document.getElementById('limite_table');
 const table_toledo = document.getElementById('toledo_table');
+const locationSwitch = document.querySelectorAll('#location-switch li');
 
-function madridHorario(){
-    console.log('madrid');
-    unfade(table_madrid);
+function setActive(index){
+    locationSwitch.forEach((el, i) => {
+        if(i === index){
+            el.classList.add('active');
+        } else {
+            el.classList.remove('active');
+        }
+    });
+}
+
+function limiteHorario(){
+    console.log('limite');
+    unfade(table_limite);
     table_toledo.style.display = 'none';
+    setActive(1);
 }
 
 function toledoHorario(){
     console.log('toledo');
     unfade(table_toledo);
-    table_madrid.style.display = 'none';
+    table_limite.style.display = 'none';
+    setActive(0);
 }
 
 

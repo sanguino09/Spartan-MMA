@@ -215,6 +215,7 @@ html .form__input::-moz-placeholder {
 
 .single-blog-item .primary-btn.pricing-btn {
   margin-top: 15px;
+  margin-bottom: 20px;
 }
 html .form__input::placeholder {
   display: none;

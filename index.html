@@ -46,6 +46,24 @@
         max-height: 100px;
         width: auto;
       }
+
+      .brand-item.maat {
+        position: relative;
+      }
+
+      .brand-item.maat .maat-link {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #000;
+        text-decoration: none;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
     </style>
   </head>
 
@@ -332,7 +350,8 @@
           </div>
         </div>
         <div class="brand-carousel owl-carousel">
-          <div class="brand-item">
+          <div class="brand-item maat">
+            <a href="https://joinmaat.com" class="maat-link" target="_blank">joinmaat.com</a>
             <img src="./img/marcas_maat2.jpeg" alt="MAAT" class="img-fluid" loading="lazy" />
           </div>
           <div class="brand-item">

@@ -29,12 +29,12 @@
 
     //Canvas Menu
     $(".canvas-open").on('click', function () {
-        $(".offcanvas-menu-wrapper").addClass("show-offcanvas-menu-wrapper");
+        $(".offcanvas-menu-wrapper").css("display", "block").addClass("show-offcanvas-menu-wrapper");
         $(".offcanvas-menu-overlay").addClass("active");
     });
 
     $(".canvas-close, .offcanvas-menu-overlay").on('click', function () {
-        $(".offcanvas-menu-wrapper").removeClass("show-offcanvas-menu-wrapper");
+        $(".offcanvas-menu-wrapper").removeClass("show-offcanvas-menu-wrapper").css("display", "none");
         $(".offcanvas-menu-overlay").removeClass("active");
     });
 

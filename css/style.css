@@ -487,8 +487,8 @@ ol {
 
 .nav-menu {
   text-align: center;
-  min-width: 80vw;
-  margin-left: -15vw;
+  width: 100%;
+  margin-left: 0;
 }
 
 .nav-menu ul li {

@@ -22,9 +22,40 @@
     /*------------------
         Background Set
     --------------------*/
-    $('.set-bg').each(function () {
-        var bg = $(this).data('setbg');
-        $(this).css('background-image', 'url(' + bg + ')');
+    function setBackgroundImage(element) {
+        var $el = $(element);
+        var bg = $el.data('setbg');
+
+        if (!bg) {
+            return;
+        }
+
+        $el.css('background-image', 'url(' + bg + ')');
+        $el.addClass('bg-loaded');
+    }
+
+    if ('IntersectionObserver' in window) {
+        var lazyBgObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    setBackgroundImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        $('.set-bg').each(function () {
+            lazyBgObserver.observe(this);
+        });
+    } else {
+        $('.set-bg').each(function () {
+            setBackgroundImage(this);
+        });
+    }
+
+    $('img[load="lazy"]').each(function () {
+        $(this).attr('loading', 'lazy');
+        $(this).removeAttr('load');
     });
 
     //Canvas Menu

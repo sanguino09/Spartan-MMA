@@ -629,7 +629,7 @@ Aquí, cada clase es un paso hacia la superación personal, en un ambiente segur
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <div class="class-timetable">
+            <div class="class-timetable" id="bjj_schedule_table">
               <table>
                 <thead>
                   <tr>
@@ -679,6 +679,14 @@ Aquí, cada clase es un paso hacia la superación personal, en un ambiente segur
                   </tr>
                 </tbody>
               </table>
+              <div class="text-center mt-3">
+                <a
+                  href="#"
+                  class="primary-btn btn-normal"
+                  onclick="downloadSchedule('bjj_schedule_table', 'horario-bjj.png'); return false;"
+                  >Descargar horario</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -928,6 +936,7 @@ Aquí, cada clase es un paso hacia la superación personal, en un ambiente segur
     <script src="js/jquery.barfiller.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

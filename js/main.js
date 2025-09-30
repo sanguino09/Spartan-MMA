@@ -276,5 +276,37 @@ function toledoHorario(){
 }
 
 
+function downloadSchedule(wrapperId, filename) {
+    var wrapper = document.getElementById(wrapperId);
+    if (!wrapper) {
+        console.warn('No se encontró el contenedor del horario con id:', wrapperId);
+        return;
+    }
+
+    var table = wrapper.querySelector('table');
+    if (!table) {
+        console.warn('No se encontró la tabla dentro del contenedor:', wrapperId);
+        return;
+    }
+
+    var scale = Math.max(window.devicePixelRatio || 1, 2);
+
+    html2canvas(table, {
+        backgroundColor: '#000',
+        scale: scale,
+        useCORS: true
+    }).then(function (canvas) {
+        var link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = filename || 'horario.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }).catch(function (error) {
+        console.error('No se pudo generar la imagen del horario:', error);
+    });
+}
+
+
 
 

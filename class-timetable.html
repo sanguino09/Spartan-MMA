@@ -276,6 +276,17 @@ td{padding-top:5px !important;padding-bottom:5px !important;}}
                     <th>Viernes</th>
                   </tr>
                 </thead>
+                <!--
+                  Patron de colores del horario:
+                  - Las filas impares (empezando a contar por 1) deben iniciar con una
+                    celda `dark-bg` en la columna del lunes y alternar oscuro/claro
+                    hacia la derecha.
+                  - Las filas pares comienzan sin `dark-bg` en lunes y continúan la
+                    alternancia de forma ajedrezada.
+                  - Las celdas vacías usan `blank-td`, añadiendo o no la clase
+                    `dark-bg` según corresponda para mantener el patrón.
+                  Repite estas reglas en cualquier tabla de horario que se copie.
+                -->
                 <tbody>
                   <tr>
                     <td class="dark-bg" style="background-color: black;"><span style="font-weight: bolder; color: white;">10:00h - 11:00h</span></td>

@@ -261,17 +261,21 @@ function setActive(index){
     });
 }
 
+/*
 function limiteHorario(){
     console.log('limite');
     unfade(table_limite);
     table_toledo.style.display = 'none';
     setActive(1);
 }
+*/
 
 function toledoHorario(){
     console.log('toledo');
     unfade(table_toledo);
-    table_limite.style.display = 'none';
+    if (table_limite) {
+        table_limite.style.display = 'none';
+    }
     setActive(0);
 }
 

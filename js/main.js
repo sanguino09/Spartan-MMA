@@ -84,29 +84,31 @@
     /*------------------
         Carousel Slider
     --------------------*/
-    var hero_s = $(".hs-slider");
-    var heroConfig = {
-        loop: true,
-        margin: 0,
-        nav: true,
-        items: 1,
-        dots: false,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-        autoHeight: false
-    };
+    if ($(".hs-slider").length) {
+        var hero_s = $(".hs-slider");
+        var heroConfig = {
+            loop: true,
+            margin: 0,
+            nav: true,
+            items: 1,
+            dots: false,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            autoHeight: false
+        };
 
-    if ($(window).width() < 768) {
-        heroConfig.autoplay = true;
-        heroConfig.smartSpeed = 600;
-        heroConfig.autoplayTimeout = 3000;
-    } else {
-        heroConfig.smartSpeed = 1200;
-        heroConfig.autoplay = false;
+        if ($(window).width() < 768) {
+            heroConfig.autoplay = true;
+            heroConfig.smartSpeed = 600;
+            heroConfig.autoplayTimeout = 3000;
+        } else {
+            heroConfig.smartSpeed = 1200;
+            heroConfig.autoplay = false;
+        }
+
+        hero_s.owlCarousel(heroConfig);
     }
-
-    hero_s.owlCarousel(heroConfig);
 
     /*------------------
         Team Slider

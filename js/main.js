@@ -84,29 +84,149 @@
     /*------------------
         Carousel Slider
     --------------------*/
-    var hero_s = $(".hs-slider");
-    var heroConfig = {
-        loop: true,
-        margin: 0,
-        nav: true,
-        items: 1,
-        dots: false,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-        autoHeight: false
-    };
+    if ($(".hs-slider").length) {
+        var hero_s = $(".hs-slider");
+        var heroConfig = {
+            loop: true,
+            margin: 0,
+            nav: true,
+            items: 1,
+            dots: false,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            autoHeight: false
+        };
 
-    if ($(window).width() < 768) {
-        heroConfig.autoplay = true;
-        heroConfig.smartSpeed = 600;
-        heroConfig.autoplayTimeout = 3000;
-    } else {
-        heroConfig.smartSpeed = 1200;
-        heroConfig.autoplay = false;
+        if ($(window).width() < 768) {
+            heroConfig.autoplay = true;
+            heroConfig.smartSpeed = 600;
+            heroConfig.autoplayTimeout = 3000;
+        } else {
+            heroConfig.smartSpeed = 1200;
+            heroConfig.autoplay = false;
+        }
+
+        hero_s.owlCarousel(heroConfig);
     }
 
-    hero_s.owlCarousel(heroConfig);
+    var heroVideoElement = document.querySelector('.hero-video');
+    if (heroVideoElement) {
+        var heroVideoRetryTimeout = null;
+        var heroVideoObserver = null;
+
+        function ensureHeroVideoAttributes() {
+            heroVideoElement.muted = true;
+            heroVideoElement.defaultMuted = true;
+            heroVideoElement.autoplay = true;
+            heroVideoElement.playsInline = true;
+            heroVideoElement.setAttribute('muted', '');
+            heroVideoElement.setAttribute('playsinline', '');
+            heroVideoElement.setAttribute('webkit-playsinline', '');
+            heroVideoElement.setAttribute('autoplay', '');
+        }
+
+        function clearHeroVideoRetry() {
+            if (heroVideoRetryTimeout !== null) {
+                clearTimeout(heroVideoRetryTimeout);
+                heroVideoRetryTimeout = null;
+            }
+        }
+
+        function scheduleHeroVideoRetry(delay) {
+            clearHeroVideoRetry();
+            heroVideoRetryTimeout = setTimeout(function () {
+                if (!document.hidden) {
+                    attemptHeroVideoPlay();
+                }
+            }, delay || 300);
+        }
+
+        function attemptHeroVideoPlay() {
+            ensureHeroVideoAttributes();
+
+            var playPromise;
+
+            try {
+                playPromise = heroVideoElement.play();
+            } catch (error) {
+                scheduleHeroVideoRetry();
+                return;
+            }
+
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch(function () {
+                    scheduleHeroVideoRetry();
+                });
+            }
+        }
+
+        function handleHeroVideoReady() {
+            attemptHeroVideoPlay();
+        }
+
+        ensureHeroVideoAttributes();
+
+        if (heroVideoElement.readyState >= 2) {
+            attemptHeroVideoPlay();
+        } else {
+            heroVideoElement.addEventListener('loadeddata', handleHeroVideoReady, { once: true });
+            heroVideoElement.addEventListener('canplay', handleHeroVideoReady, { once: true });
+        }
+
+        heroVideoElement.addEventListener('playing', clearHeroVideoRetry);
+        heroVideoElement.addEventListener('pause', function () {
+            scheduleHeroVideoRetry();
+        });
+        heroVideoElement.addEventListener('stalled', function () {
+            scheduleHeroVideoRetry(500);
+        });
+        heroVideoElement.addEventListener('suspend', function () {
+            scheduleHeroVideoRetry(800);
+        });
+
+        ['click', 'touchstart', 'keydown'].forEach(function (eventName) {
+            var listenerOptions = { once: true };
+
+            if (eventName !== 'keydown') {
+                listenerOptions.passive = true;
+            }
+
+            document.addEventListener(eventName, function userInteractionHandler() {
+                scheduleHeroVideoRetry(0);
+            }, listenerOptions);
+        });
+
+        document.addEventListener('visibilitychange', function () {
+            if (!document.hidden && heroVideoElement.paused) {
+                scheduleHeroVideoRetry(0);
+            }
+        });
+
+        window.addEventListener('focus', function () {
+            scheduleHeroVideoRetry(0);
+        });
+
+        if ('IntersectionObserver' in window) {
+            heroVideoObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        scheduleHeroVideoRetry(0);
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            heroVideoObserver.observe(heroVideoElement);
+        } else {
+            var heroVideoScrollHandler = function () {
+                scheduleHeroVideoRetry(0);
+            };
+
+            window.addEventListener('scroll', heroVideoScrollHandler, { passive: true });
+        }
+
+        scheduleHeroVideoRetry(0);
+    }
 
     /*------------------
         Team Slider

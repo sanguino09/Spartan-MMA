@@ -243,14 +243,21 @@
     <section class="hero-section">
       <div class="hero-video-banner">
         <div class="hero-video-container">
-          <iframe
-            class="hero-video-frame"
-            src="https://drive.google.com/file/d/1GKX_cPqHIzlYxvt6RB3jBPylYC-pswCN/preview"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-            loading="lazy"
+          <video
+            class="hero-video hero-video-frame"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
             title="Sparta MMA - Video promocional"
-          ></iframe>
+          >
+            <source
+              src="./video/spartamma_video_high.mp4"
+              type="video/mp4"
+            />
+            Tu navegador no soporta la reproducción de video.
+          </video>
         </div>
         <div class="container hero-video-content">
           <div class="row">

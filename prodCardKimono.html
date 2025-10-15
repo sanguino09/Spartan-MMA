@@ -20,7 +20,10 @@
       <body>
         <div class="container">
           <div class="imgBx">
-            <img src="./img/spartaHellfightersKimono.jpeg" alt="" />
+            <img
+              src="./img/spartaHellfightersKimono.jpeg"
+              alt="Kimono negro Sparta Hellfighters"
+            />
             
           </div>
           <div class="details">
@@ -43,9 +46,57 @@
                 Colores:
                 <span
                   class="black active"
-                  data-color-primary="#000"
+                  title="Negro"
+                  aria-label="Kimono negro"
+                  data-color-primary="#0a0a0a"
                   data-color-sec="#212121"
                   data-pic="./img/spartaHellfightersKimono.jpeg"
+                  tabindex="0"
+                ></span>
+                <span
+                  class="white"
+                  title="Blanco"
+                  aria-label="Kimono blanco"
+                  data-color-primary="#f6f6f6"
+                  data-color-sec="#dcdcdc"
+                  data-pic="./img/blog/white_kimono.jpg"
+                  tabindex="0"
+                ></span>
+                <span
+                  class="blue"
+                  title="Azul"
+                  aria-label="Kimono azul"
+                  data-color-primary="#1e3a8a"
+                  data-color-sec="#274bd7"
+                  data-pic="./img/blog/blue_kimono.jpg"
+                  tabindex="0"
+                ></span>
+                <span
+                  class="red"
+                  title="Rojo"
+                  aria-label="Kimono rojo"
+                  data-color-primary="#6f1010"
+                  data-color-sec="#b22222"
+                  data-pic="./img/blog/red_kimono.jpg"
+                  tabindex="0"
+                ></span>
+                <span
+                  class="pink"
+                  title="Rosa"
+                  aria-label="Kimono rosa"
+                  data-color-primary="#b5125f"
+                  data-color-sec="#d43790"
+                  data-pic="./img/blog/pink_kimono.jpg"
+                  tabindex="0"
+                ></span>
+                <span
+                  class="olive"
+                  title="Verde oliva"
+                  aria-label="Kimono verde oliva"
+                  data-color-primary="#394315"
+                  data-color-sec="#6a760c"
+                  data-pic="./img/blog/olive_kimono.jpg"
+                  tabindex="0"
                 ></span>
               </p>
               <h3>Precio: 75€</h3>
@@ -90,8 +141,14 @@
             );
             $(".imgBx img").attr("src", $(this).attr("data-pic"));
           });
+          $(".product-colors span").on("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              $(this).click();
+            }
+          });
         </script>
-      </body>
+        </body>
     </html>
     <!-- partial -->
   </body>

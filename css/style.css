@@ -1961,6 +1961,8 @@ a:hover {
 .class-timetable table tbody tr td {
   width: 146px;
   padding: 35px 0;
+  border-top: 1px solid #1f1f1f;
+  border-bottom: 1px solid #1f1f1f;
 }
 
 .class-timetable table tbody tr td.class-time {

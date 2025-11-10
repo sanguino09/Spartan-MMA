@@ -1165,6 +1165,57 @@ ol {
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  background-color: #101010;
+  transition: opacity 0.3s ease;
+}
+
+.gallery .gs-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(30, 30, 30, 0.8) 0%,
+    rgba(45, 45, 45, 0.8) 35%,
+    rgba(30, 30, 30, 0.8) 70%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.gallery .gs-item.is-loading {
+  opacity: 0.6;
+}
+
+.gallery .gs-item.is-loading::after {
+  opacity: 0.9;
+  animation: gallery-skeleton-shimmer 1.4s linear infinite;
+}
+
+.gallery .gs-item.is-loaded {
+  opacity: 1;
+}
+
+.gallery .gs-item.is-loaded::after {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes gallery-skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .gallery .gs-item:hover .thumb-icon {
@@ -1191,6 +1242,8 @@ ol {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  position: relative;
+  z-index: 2;
 }
 
 .gallery .gs-item.grid-wide {

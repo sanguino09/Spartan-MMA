@@ -22,10 +22,104 @@
     /*------------------
         Background Set
     --------------------*/
-    $('.set-bg').each(function () {
-        var bg = $(this).data('setbg');
-        $(this).css('background-image', 'url(' + bg + ')');
+    var galleryMasonryContainer = $('.gallery');
+
+    function triggerMasonryLayout() {
+        if (!galleryMasonryContainer.length || typeof galleryMasonryContainer.masonry !== 'function') {
+            return;
+        }
+
+        if (galleryMasonryContainer.data('masonry')) {
+            galleryMasonryContainer.masonry('layout');
+        } else {
+            setTimeout(function () {
+                if (galleryMasonryContainer.data('masonry')) {
+                    galleryMasonryContainer.masonry('layout');
+                }
+            }, 50);
+        }
+    }
+
+    function applyBackgroundImage(element) {
+        var $element = $(element);
+        if ($element.data('bgLoaded')) {
+            return;
+        }
+
+        var bg = $element.data('setbg');
+        if (!bg) {
+            return;
+        }
+
+        var setBackground = function () {
+            $element.css('background-image', 'url(' + bg + ')');
+            $element.data('bgLoaded', true);
+            $element.attr('data-bg-loaded', 'true');
+            $element.removeClass('is-loading').addClass('is-loaded');
+            triggerMasonryLayout();
+        };
+
+        var image = new Image();
+        image.onload = function () {
+            setBackground();
+        };
+        image.onerror = function () {
+            setBackground();
+        };
+        image.src = bg;
+    }
+
+    var setBgElements = Array.prototype.slice.call(document.querySelectorAll('.set-bg[data-setbg]'));
+
+    setBgElements.forEach(function (element) {
+        if (!element.classList.contains('is-loading') && !element.dataset.bgLoaded) {
+            element.classList.add('is-loading');
+        }
     });
+
+    if ('IntersectionObserver' in window && setBgElements.length) {
+        var LOAD_AHEAD_COUNT = 2;
+        var pendingElements = setBgElements.slice();
+        var setBgObserver;
+
+        var loadElementWithBuffer = function (element) {
+            var elementIndex = pendingElements.indexOf(element);
+
+            if (elementIndex === -1) {
+                return;
+            }
+
+            setBgObserver.unobserve(element);
+            pendingElements.splice(elementIndex, 1);
+            applyBackgroundImage(element);
+
+            for (var i = 0; i < LOAD_AHEAD_COUNT && elementIndex < pendingElements.length; i++) {
+                var nextElement = pendingElements[elementIndex];
+
+                setBgObserver.unobserve(nextElement);
+                pendingElements.splice(elementIndex, 1);
+                applyBackgroundImage(nextElement);
+            }
+        };
+
+        setBgObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting || entry.intersectionRatio > 0) {
+                    loadElementWithBuffer(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '300px 0px'
+        });
+
+        pendingElements.forEach(function (element) {
+            setBgObserver.observe(element);
+        });
+    } else {
+        setBgElements.forEach(function (element) {
+            applyBackgroundImage(element);
+        });
+    }
 
     //Canvas Menu
     $(".canvas-open").on('click', function () {

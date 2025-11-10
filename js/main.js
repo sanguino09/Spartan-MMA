@@ -22,10 +22,74 @@
     /*------------------
         Background Set
     --------------------*/
-    $('.set-bg').each(function () {
-        var bg = $(this).data('setbg');
-        $(this).css('background-image', 'url(' + bg + ')');
-    });
+    var galleryMasonryContainer = $('.gallery');
+
+    function triggerMasonryLayout() {
+        if (!galleryMasonryContainer.length || typeof galleryMasonryContainer.masonry !== 'function') {
+            return;
+        }
+
+        if (galleryMasonryContainer.data('masonry')) {
+            galleryMasonryContainer.masonry('layout');
+        } else {
+            setTimeout(function () {
+                if (galleryMasonryContainer.data('masonry')) {
+                    galleryMasonryContainer.masonry('layout');
+                }
+            }, 50);
+        }
+    }
+
+    function applyBackgroundImage(element) {
+        var $element = $(element);
+        if ($element.data('bgLoaded')) {
+            return;
+        }
+
+        var bg = $element.data('setbg');
+        if (!bg) {
+            return;
+        }
+
+        var setBackground = function () {
+            $element.css('background-image', 'url(' + bg + ')');
+            $element.data('bgLoaded', true);
+            $element.attr('data-bg-loaded', 'true');
+            triggerMasonryLayout();
+        };
+
+        var image = new Image();
+        image.onload = function () {
+            setBackground();
+        };
+        image.onerror = function () {
+            setBackground();
+        };
+        image.src = bg;
+    }
+
+    var setBgElements = document.querySelectorAll('.set-bg[data-setbg]');
+
+    if ('IntersectionObserver' in window && setBgElements.length) {
+        var setBgObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting || entry.intersectionRatio > 0) {
+                    applyBackgroundImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '300px 0px'
+        });
+
+        Array.prototype.forEach.call(setBgElements, function (element) {
+            setBgObserver.observe(element);
+        });
+    } else {
+        Array.prototype.forEach.call(setBgElements, function (element) {
+            applyBackgroundImage(element);
+        });
+    }
 
     //Canvas Menu
     $(".canvas-open").on('click', function () {

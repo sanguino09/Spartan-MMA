@@ -55,6 +55,7 @@
             $element.css('background-image', 'url(' + bg + ')');
             $element.data('bgLoaded', true);
             $element.attr('data-bg-loaded', 'true');
+            $element.removeClass('is-loading').addClass('is-loaded');
             triggerMasonryLayout();
         };
 
@@ -68,25 +69,54 @@
         image.src = bg;
     }
 
-    var setBgElements = document.querySelectorAll('.set-bg[data-setbg]');
+    var setBgElements = Array.prototype.slice.call(document.querySelectorAll('.set-bg[data-setbg]'));
+
+    setBgElements.forEach(function (element) {
+        if (!element.classList.contains('is-loading') && !element.dataset.bgLoaded) {
+            element.classList.add('is-loading');
+        }
+    });
 
     if ('IntersectionObserver' in window && setBgElements.length) {
-        var setBgObserver = new IntersectionObserver(function (entries, observer) {
+        var LOAD_AHEAD_COUNT = 2;
+        var pendingElements = setBgElements.slice();
+        var setBgObserver;
+
+        var loadElementWithBuffer = function (element) {
+            var elementIndex = pendingElements.indexOf(element);
+
+            if (elementIndex === -1) {
+                return;
+            }
+
+            setBgObserver.unobserve(element);
+            pendingElements.splice(elementIndex, 1);
+            applyBackgroundImage(element);
+
+            for (var i = 0; i < LOAD_AHEAD_COUNT && elementIndex < pendingElements.length; i++) {
+                var nextElement = pendingElements[elementIndex];
+
+                setBgObserver.unobserve(nextElement);
+                pendingElements.splice(elementIndex, 1);
+                applyBackgroundImage(nextElement);
+            }
+        };
+
+        setBgObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting || entry.intersectionRatio > 0) {
-                    applyBackgroundImage(entry.target);
-                    observer.unobserve(entry.target);
+                    loadElementWithBuffer(entry.target);
                 }
             });
         }, {
             rootMargin: '300px 0px'
         });
 
-        Array.prototype.forEach.call(setBgElements, function (element) {
+        pendingElements.forEach(function (element) {
             setBgObserver.observe(element);
         });
     } else {
-        Array.prototype.forEach.call(setBgElements, function (element) {
+        setBgElements.forEach(function (element) {
             applyBackgroundImage(element);
         });
     }

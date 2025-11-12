@@ -3728,3 +3728,118 @@ a:hover {
     max-width: 300px;
   }
 }
+
+.limited-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1200;
+}
+
+.limited-modal-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.limited-modal {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 32px 28px 36px;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.limited-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: 0;
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.limited-modal__close:hover,
+.limited-modal__close:focus {
+  transform: scale(1.1);
+  color: #f04d2d;
+}
+
+.limited-modal__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(240, 77, 45, 0.15);
+  color: #f04d2d;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.limited-modal h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.limited-modal p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.limited-modal__media {
+  margin-bottom: 24px;
+}
+
+.limited-modal__media img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.limited-modal__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+@media (max-width: 480px) {
+  .limited-modal {
+    padding: 28px 20px 32px;
+  }
+
+  .limited-modal h3 {
+    font-size: 21px;
+  }
+
+  .limited-modal__tag {
+    font-size: 11px;
+    letter-spacing: 0.8px;
+  }
+}

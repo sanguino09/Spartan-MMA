@@ -42,6 +42,52 @@
       <div class="loader"></div>
     </div>
 
+    <!-- Limited Edition Modal -->
+    <div
+      class="limited-modal-overlay"
+      id="limitedEditionModal"
+      aria-hidden="true"
+    >
+      <div class="limited-modal" role="dialog" aria-labelledby="limitedEditionTitle">
+        <button
+          type="button"
+          class="limited-modal__close"
+          id="limitedEditionClose"
+          aria-label="Cerrar anuncio de edición limitada"
+        >
+          &times;
+        </button>
+        <span class="limited-modal__tag">Novedad · Edición limitada</span>
+        <h3 id="limitedEditionTitle">Colección Grappling 12·11·2025</h3>
+        <p class="limited-modal__description">
+          Presentamos la prenda exclusiva de grappling disponible solo por tiempo
+          limitado. Consigue la edición especial conmemorativa antes de que se
+          agote.
+        </p>
+        <div class="limited-modal__media">
+          <img
+            src="img/gallery/IMG-20251112-WA0036.jpg"
+            alt="Edición limitada de ropa de grappling conmemorativa del 12 de noviembre de 2025"
+            loading="lazy"
+            data-product-name="Camiseta Grappling · Edición limitada"
+            data-product-whatsapp="Grappling de edición limitada"
+            data-product-whatsapp-message="Oye, quiero esta camiseta de Grappling de edición limitada"
+            data-product-price="65"
+            data-product-currency="€"
+            data-product-sizes="XS,S,M,L,XL"
+          />
+        </div>
+        <a
+          href="./prodCardLimitedEdition.html"
+          class="primary-btn btn-normal limited-modal__cta"
+          id="limitedEditionCta"
+        >
+          Ver la edición limitada
+        </a>
+      </div>
+    </div>
+    <!-- Limited Edition Modal End -->
+
     <!-- Offcanvas Menu Section Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
@@ -585,5 +631,94 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var modal = document.getElementById("limitedEditionModal");
+        if (!modal) {
+          return;
+        }
+
+        var closeButton = document.getElementById("limitedEditionClose");
+        var ctaButton = document.getElementById("limitedEditionCta");
+
+        function openModal() {
+          modal.classList.add("is-visible");
+          modal.setAttribute("aria-hidden", "false");
+        }
+
+        function closeModal() {
+          modal.classList.remove("is-visible");
+          modal.setAttribute("aria-hidden", "true");
+        }
+
+        closeButton && closeButton.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", function (event) {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && modal.classList.contains("is-visible")) {
+            closeModal();
+          }
+        });
+
+        function persistLimitedEditionData() {
+          if (!ctaButton) {
+            return;
+          }
+
+          ctaButton.addEventListener("click", function () {
+            var media = modal.querySelector("[data-product-name]");
+            var description = modal.querySelector(
+              ".limited-modal__description"
+            );
+            var headline = document.getElementById("limitedEditionTitle");
+
+            if (media) {
+              var payload = {
+                name: media.getAttribute("data-product-name") || "",
+                whatsapp:
+                  media.getAttribute("data-product-whatsapp") || "",
+                whatsappMessage:
+                  media.getAttribute("data-product-whatsapp-message") || "",
+                price: media.getAttribute("data-product-price") || "",
+                currency:
+                  media.getAttribute("data-product-currency") || "€",
+                sizes: media.getAttribute("data-product-sizes") || "",
+                imageSrc: media.getAttribute("src") || "",
+                imageAlt: media.getAttribute("alt") || "",
+                description: description
+                  ? description.textContent.trim()
+                  : "",
+                headline: headline ? headline.textContent.trim() : "",
+              };
+
+              try {
+                sessionStorage.setItem(
+                  "limitedEditionProduct",
+                  JSON.stringify(payload)
+                );
+              } catch (error) {
+                console.error("No se pudo guardar la novedad limitada", error);
+              }
+            }
+
+            closeModal();
+          });
+        }
+
+        persistLimitedEditionData();
+
+        if (!sessionStorage.getItem("limitedEditionSeen")) {
+          setTimeout(function () {
+            openModal();
+            sessionStorage.setItem("limitedEditionSeen", "true");
+          }, 600);
+        }
+      });
+    </script>
   </body>
 </html>

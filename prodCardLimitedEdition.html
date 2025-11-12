@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Edición limitada de merchandising Sparta MMA."
+    />
+    <title>Edición limitada · Sparta MMA</title>
+    <link rel="stylesheet" href="./prodCard/dist/style.css" />
+    <link rel="icon" href="./img/soloCasco.png" />
+  </head>
+  <body>
+    <div class="container limited-product">
+      <div class="imgBx">
+        <img
+          id="limitedProductImage"
+          src="./img/gallery/IMG-20251112-WA0036.jpg"
+          alt="Camiseta de grappling edición limitada conmemorativa"
+          loading="lazy"
+        />
+      </div>
+      <div class="details">
+        <div class="content">
+          <h2 class="limited-product-heading">
+            <span id="limitedProductTitleText" class="limited-product-title"
+              >Camiseta Grappling · Edición limitada</span
+            >
+            <span id="limitedProductTagline" class="limited-product-subtitle"
+              >Colección Grappling 12·11·2025</span
+            >
+          </h2>
+          <p id="limitedProductDescription">
+            Una cápsula irrepetible con tejidos técnicos de secado rápido,
+            terminaciones termoselladas y detalles metálicos inspirados en la
+            división de grappling. Cada unidad se personaliza bajo pedido para
+            mantener la exclusividad del lanzamiento.
+          </p>
+          <div class="imgBx2 tallaPhone">
+            <img
+              src="./img/blog/tallaGrap.jpeg"
+              alt="Guía de tallas de las prendas de grappling"
+            />
+          </div>
+          <p class="product-colors">
+            Colores:
+            <span
+              class="black active"
+              data-color-primary="#050505"
+              data-color-sec="#1b1b1b"
+              data-color-name="Negro ónix"
+              data-image="./img/gallery/IMG-20251112-WA0036.jpg"
+            ></span>
+            <span
+              class="gold"
+              data-color-primary="#1c1407"
+              data-color-sec="#8c6b24"
+              data-color-name="Detalles dorados"
+              data-image="./img/gallery/IMG-20251112-WA0036.jpg"
+            ></span>
+            <span
+              class="white"
+              data-color-primary="#1a1a1a"
+              data-color-sec="#2f2f2f"
+              data-color-name="Humo oscuro"
+              data-image="./img/gallery/IMG-20251112-WA0036.jpg"
+            ></span>
+          </p>
+          <div class="product-meta">
+            <span class="product-meta__label">Color seleccionado:</span>
+            <span id="limitedSelectedColor" class="product-meta__value"
+              >Negro ónix</span
+            >
+          </div>
+          <div class="product-meta">
+            <span class="product-meta__label">Tallas disponibles:</span>
+            <ul id="limitedProductSizes" class="product-meta__list">
+              <li>XS</li>
+              <li>S</li>
+              <li>M</li>
+              <li>L</li>
+              <li>XL</li>
+            </ul>
+          </div>
+          <h3 id="limitedProductPrice">Precio: 65€</h3>
+          <h6>+ gastos de envío</h6>
+          <a
+            id="limitedWhatsappLink"
+            href="https://wa.me/34628689601?text=Oye%2C%20quiero%20esta%20camiseta%20de%20Grappling%20de%20edici%C3%B3n%20limitada"
+            target="_blank"
+            rel="noopener"
+          >
+            <button type="button">Comprar por WhatsApp</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="tallaPC">
+      <img
+        src="./img/blog/tallaGrap.jpeg"
+        class="kimClass"
+        alt="Guía de tallas de las prendas de grappling"
+      />
+    </div>
+    <footer>
+      <a
+        href="./store.html"
+        style="-webkit-text-stroke: 1px black; font-size: large"
+        ><strong><- Volver atrás</strong></a
+      >
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var productDataRaw = null;
+
+        try {
+          productDataRaw = sessionStorage.getItem("limitedEditionProduct");
+        } catch (error) {
+          console.warn("No se pudo acceder al almacenamiento de sesión", error);
+        }
+
+        var productData = {};
+
+        if (productDataRaw) {
+          try {
+            productData = JSON.parse(productDataRaw) || {};
+          } catch (error) {
+            console.warn("No se pudo interpretar la información del producto", error);
+          }
+        }
+
+        var defaults = {
+          name: "Camiseta Grappling · Edición limitada",
+          headline: "Colección Grappling 12·11·2025",
+          description:
+            "Una cápsula irrepetible con tejidos técnicos de secado rápido, terminaciones termoselladas y detalles metálicos inspirados en la división de grappling. Cada unidad se personaliza bajo pedido para mantener la exclusividad del lanzamiento.",
+          price: "65",
+          currency: "€",
+          whatsapp: "Grappling de edición limitada",
+          sizes: "XS,S,M,L,XL",
+          imageSrc: "./img/gallery/IMG-20251112-WA0036.jpg",
+          imageAlt: "Camiseta de grappling edición limitada conmemorativa",
+        };
+
+        var hydrated = Object.assign({}, defaults, productData);
+
+        var titleText = document.getElementById("limitedProductTitleText");
+        var tagline = document.getElementById("limitedProductTagline");
+        var description = document.getElementById("limitedProductDescription");
+        var price = document.getElementById("limitedProductPrice");
+        var sizesList = document.getElementById("limitedProductSizes");
+        var image = document.getElementById("limitedProductImage");
+        var whatsappLink = document.getElementById("limitedWhatsappLink");
+        var selectedColorLabel = document.getElementById(
+          "limitedSelectedColor"
+        );
+
+        if (titleText) {
+          titleText.textContent = hydrated.name;
+        }
+
+        if (tagline) {
+          tagline.textContent = hydrated.headline;
+        }
+
+        if (description) {
+          description.textContent = hydrated.description;
+        }
+
+        if (price) {
+          var priceValue = hydrated.price ? hydrated.price.trim() : "";
+          var currency = hydrated.currency || "€";
+          if (priceValue) {
+            price.textContent = "Precio: " + priceValue + currency;
+          }
+        }
+
+        if (sizesList && hydrated.sizes) {
+          sizesList.innerHTML = "";
+          hydrated.sizes.split(",").forEach(function (size) {
+            if (size.trim()) {
+              var li = document.createElement("li");
+              li.textContent = size.trim();
+              sizesList.appendChild(li);
+            }
+          });
+        }
+
+        if (image) {
+          image.setAttribute("src", hydrated.imageSrc);
+          image.setAttribute("alt", hydrated.imageAlt);
+        }
+
+        var whatsappDescriptor = hydrated.whatsapp || hydrated.name;
+        var whatsappMessage = hydrated.whatsappMessage
+          ? hydrated.whatsappMessage
+          : "Oye, quiero esta camiseta de " + whatsappDescriptor;
+
+        if (whatsappLink) {
+          var encoded = encodeURIComponent(whatsappMessage);
+          whatsappLink.setAttribute(
+            "href",
+            "https://wa.me/34628689601?text=" + encoded
+          );
+          whatsappLink.setAttribute(
+            "aria-label",
+            "Abrir WhatsApp para pedir " + whatsappDescriptor
+          );
+        }
+
+        document.title = hydrated.name + " · Sparta MMA";
+
+        var colorOptions = document.querySelectorAll(".product-colors span");
+
+        function applyColor(option) {
+          if (!option) {
+            return;
+          }
+
+          var primary = option.getAttribute("data-color-primary") || "#000";
+          var secondary = option.getAttribute("data-color-sec") || "#212121";
+          var colorName = option.getAttribute("data-color-name") || "";
+          var newImage = option.getAttribute("data-image");
+
+          document.body.style.background = primary;
+
+          var imageBox = document.querySelector(".container .imgBx");
+          if (imageBox) {
+            imageBox.style.background = secondary;
+          }
+
+          var ctaButton = document.querySelector(".container .details button");
+          if (ctaButton) {
+            ctaButton.style.background = secondary;
+          }
+
+          if (selectedColorLabel) {
+            selectedColorLabel.textContent = colorName;
+          }
+
+          if (image && newImage) {
+            image.setAttribute("src", newImage);
+          }
+        }
+
+        colorOptions.forEach(function (option) {
+          option.addEventListener("click", function () {
+            colorOptions.forEach(function (item) {
+              item.classList.remove("active");
+            });
+            option.classList.add("active");
+            applyColor(option);
+          });
+        });
+
+        var initialColor = document.querySelector(
+          ".product-colors span.active"
+        );
+
+        if (!initialColor && colorOptions.length) {
+          initialColor = colorOptions[0];
+          initialColor.classList.add("active");
+        }
+
+        applyColor(initialColor);
+      });
+    </script>
+  </body>
+</html>

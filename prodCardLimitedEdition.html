@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Merchandising Edición Limitada Grappling</title>
+    <link rel="stylesheet" href="./prodCard/dist/style.css" />
+    <link rel="icon" href="./img/soloCasco.png" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <!DOCTYPE html>
+    <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Edición Limitada Grappling</title>
+
+        <!-- Vendor Script -->
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"
+        ></script>
+      </head>
+
+      <body>
+        <div class="container">
+          <div class="imgBx">
+            <img
+              src="./img/gallery/IMG-20251112-WA0036.jpg"
+              alt="Uniforme edición limitada de Grappling"
+            />
+          </div>
+          <div class="details">
+            <div class="content">
+              <h2>
+                Grappling & Sub<br />
+                <span>Edición limitada conmemorativa</span>
+              </h2>
+              <p>
+                Esta versión especial rinde homenaje al evento del 12 de noviembre
+                de 2025. Incluye rashguard y short a juego con un acabado premium
+                y el emblema exclusivo de la división de Grappling & Submission.
+                Disponible únicamente mientras duren las existencias.
+              </p>
+              <div class="imgBx2 tallaPhone">
+                <img src="./img/blog/tallaGrap.jpeg" alt="Guía de tallas" />
+              </div>
+
+              <p class="product-colors">
+                Color exclusivo:
+                <span
+                  class="black active"
+                  data-color-primary="#111111"
+                  data-color-sec="#a1181c"
+                  data-pic="./img/gallery/IMG-20251112-WA0036.jpg"
+                ></span>
+              </p>
+              <h3>Precio: 65€</h3>
+              <h6>+ gastos de envío</h6>
+              <a
+                href="https://wa.me/34628689601?text=Hola!%20Estoy%20interesad%40%20en%20el%20uniforme%20de%20Grappling%20edici%C3%B3n%20limitada!%20El%20precio%20es%20de%2065%E2%82%AC"
+                ><button>Comprar</button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div>
+          <img
+            class="tallaPC"
+            style="width: 30vw"
+            src="./img/blog/tallaGrap.jpeg"
+            alt="Guía de tallas"
+          />
+        </div>
+        <footer>
+          <a
+            href="./store.html"
+            style="-webkit-text-stroke: 1px black; font-size: large"
+            ><strong><- Volver atrás</strong></a
+          >
+        </footer>
+        <script>
+          // Change The Picture and Associated Element Color when Color Options Are Clicked.
+          $(".product-colors span").click(function () {
+            $(".product-colors span").removeClass("active");
+            $(this).addClass("active");
+            $(".active").css("border-color", $(this).attr("data-color-sec"));
+            $("body").css("background", $(this).attr("data-color-primary"));
+            $(".content h2").css("color", $(this).attr("data-color-sec"));
+            $(".content h3").css("color", $(this).attr("data-color-sec"));
+            $(".container .imgBx").css(
+              "background",
+              $(this).attr("data-color-sec")
+            );
+            $(".container .details button").css(
+              "background",
+              $(this).attr("data-color-sec")
+            );
+            $(".imgBx img").attr("src", $(this).attr("data-pic"));
+          });
+
+          $(document).ready(function () {
+            $(".product-colors span.active").trigger("click");
+          });
+        </script>
+      </body>
+    </html>
+    <!-- partial -->
+  </body>
+</html>

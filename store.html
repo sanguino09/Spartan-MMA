@@ -72,7 +72,7 @@
           />
         </div>
         <a
-          href="./prodCard.html"
+          href="./prodCardLimitedEdition.html"
           class="primary-btn btn-normal limited-modal__cta"
           id="limitedEditionCta"
         >
@@ -664,12 +664,9 @@
             closeModal();
           });
 
-        if (!sessionStorage.getItem("limitedEditionSeen")) {
-          setTimeout(function () {
-            openModal();
-            sessionStorage.setItem("limitedEditionSeen", "true");
-          }, 600);
-        }
+        setTimeout(function () {
+          openModal();
+        }, 600);
       });
     </script>
   </body>

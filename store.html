@@ -664,12 +664,9 @@
             closeModal();
           });
 
-        if (!sessionStorage.getItem("limitedEditionSeen")) {
-          setTimeout(function () {
-            openModal();
-            sessionStorage.setItem("limitedEditionSeen", "true");
-          }, 600);
-        }
+        setTimeout(function () {
+          openModal();
+        }, 600);
       });
     </script>
   </body>

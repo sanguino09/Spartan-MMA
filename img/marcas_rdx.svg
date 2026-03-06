@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- RDX text at top -->
+  <text x="200" y="95" font-family="Arial Black, sans-serif" font-size="88" font-weight="900" fill="#e41c1f" text-anchor="middle" letter-spacing="4">RDX</text>
+  <!-- Registered trademark -->
+  <text x="325" y="62" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#e41c1f">®</text>
+
+  <!-- Large downward-pointing triangle -->
+  <polygon points="50,120 350,120 200,370" fill="#e41c1f"/>
+
+  <!-- Stylized R cutout (white) inside triangle -->
+  <!-- R vertical stem -->
+  <rect x="155" y="145" width="28" height="115" fill="white"/>
+  <!-- R top horizontal bar -->
+  <rect x="155" y="145" width="70" height="22" fill="white"/>
+  <!-- R bump (arc top right) -->
+  <ellipse cx="200" cy="185" rx="25" ry="22" fill="white"/>
+  <!-- Cover inside of bump to create hollow -->
+  <ellipse cx="200" cy="185" rx="12" ry="12" fill="#e41c1f"/>
+  <!-- R middle bar -->
+  <rect x="155" y="196" width="70" height="20" fill="white"/>
+  <!-- R diagonal leg -->
+  <polygon points="210,216 240,260 218,260 188,216" fill="white"/>
+
+  <!-- TM text -->
+  <text x="335" y="370" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#e41c1f">TM</text>
+</svg>

@@ -2071,6 +2071,180 @@ a:hover {
 }
 
 /*---------------------
+  Horario Colored Table (Class Timetable page)
+-----------------------*/
+.horario-title-block {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.horario-title-block .htb-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.horario-title-block .htb-line .line {
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: #e41c1f;
+}
+
+.horario-title-block h2 {
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.horario-title-block h3 {
+  color: #e41c1f;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.class-timetable.horario-colored {
+  overflow-x: auto;
+}
+
+.class-timetable.horario-colored table {
+  border: 2px solid #2b2b2b;
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 620px;
+}
+
+.class-timetable.horario-colored table thead tr th {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #2b2b2b;
+  padding: 16px 0;
+}
+
+.class-timetable.horario-colored table tbody tr td {
+  width: auto;
+  border: 1px solid #2b2b2b;
+  padding: 16px 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.class-timetable.horario-colored table tbody tr td.disc-time {
+  background: #000000;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.class-timetable.horario-colored table tbody tr td.disc-bjj {
+  background: #ffffff;
+  color: #111111;
+}
+
+.class-timetable.horario-colored table tbody tr td.disc-grap {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.class-timetable.horario-colored table tbody tr td.disc-mma {
+  background: #e41c1f;
+  color: #ffffff;
+}
+
+.class-timetable.horario-colored table tbody tr td.disc-blank {
+  background: #0a0a0a;
+  color: #4a4a4a;
+  font-weight: 400;
+}
+
+.class-timetable.horario-colored table tbody tr td .disc-sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 3px;
+  opacity: 0.85;
+}
+
+.class-timetable.horario-colored table tbody tr td.disc-legend-cell {
+  background: #151515;
+  border: none;
+  padding: 25px 10px 5px;
+}
+
+.horario-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.horario-legend .hl-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.horario-legend .hl-swatch {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.horario-legend .hl-swatch.bjj {
+  background: #ffffff;
+}
+
+.horario-legend .hl-swatch.grap {
+  background: #000000;
+  border: 2px solid #ffffff;
+  width: 16px;
+  height: 16px;
+}
+
+.horario-legend .hl-swatch.mma {
+  background: #e41c1f;
+}
+
+.horario-legend .hl-item span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 576px) {
+  .horario-title-block h2 {
+    font-size: 26px;
+  }
+  .horario-title-block .htb-line .line {
+    width: 30px;
+  }
+  .class-timetable.horario-colored table tbody tr td {
+    font-size: 11px;
+    padding: 10px 4px;
+  }
+  .horario-legend {
+    gap: 18px;
+  }
+}
+
+/*---------------------
   Class Details Section
 -----------------------*/
 

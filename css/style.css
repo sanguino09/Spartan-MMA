@@ -2148,6 +2148,11 @@ a:hover {
   color: #ffffff;
 }
 
+.class-timetable.horario-colored table tbody tr td.disc-boxeo {
+  background: #7a1216;
+  color: #ffffff;
+}
+
 .class-timetable.horario-colored table tbody tr td.disc-blank {
   background: #0a0a0a;
   color: #4a4a4a;
@@ -2199,6 +2204,10 @@ a:hover {
 
 .horario-legend .hl-swatch.mma {
   background: #6e6e6e;
+}
+
+.horario-legend .hl-swatch.boxeo {
+  background: #7a1216;
 }
 
 .horario-legend .hl-item span {

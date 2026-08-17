@@ -262,6 +262,81 @@ td{padding-top:5px !important;padding-bottom:5px !important;}}
         <div class="row">
           <div class="col-lg-12">
 
+<!--
+  HORARIO ANTERIOR (respaldo, no eliminar / no reutilizar el id "toledo_table" aquí dentro)
+  Este era el horario y formato antes del rediseño con colores por disciplina.
+  Se conserva comentado por si hace falta volver a él.
+
+  <div class="class-timetable" id="toledo_table">
+    <table>
+      <h2 style="color: white; display: flex; justify-content: center; margin-bottom: 1vh;">Horario Sparta Headquarters</h2>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dark-bg" style="background-color: black;"><span style="font-weight: bolder; color: white;">10:00h - 11:00h</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="bjj"><span>BJJ</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="bjj"><span>BJJ</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="grap"><span>Grappling Shark Tank</span></td>
+        </tr>
+        <tr>
+          <td class="dark-bg" style="background-color: black;"><span style="font-weight: bolder; color: white;">11:00h - 12:00h</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="mma"><span>MMA War Room</span></td>
+        </tr>
+        <tr>
+          <td class="dark-bg" style="background-color: black;"><span style="font-weight: bolder; color: white;">12:00h - 13:00h</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg blank-td"><span></span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg blank-td"><span></span></td>
+          <td class="dark-bg blank-td"><span></span></td>
+        </tr>
+        <tr>
+          <td class="dark-bg" style="background-color: black;"><span style="font-weight: bolder; color: white;">19:00h - 20:00h</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="bjj"><span>BJJ</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="bjj"><span>BJJ</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="grap"><span>Grappling Shark Tank</span></td>
+        </tr>
+        <tr>
+          <td class="dark-bg" style="background-color: black;"><span style="font-weight: bolder; color: white;">20:00h - 21:00h</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="grap"><span>Grappling</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg ts-meta" data-tsmeta="mma"><span>MMA War Room</span></td>
+        </tr>
+        <tr>
+          <td class="dark-bg" style="background-color: black;"><span style="font-weight: bolder; color: white;">21:00h - 22:00h</span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg blank-td"><span></span></td>
+          <td class="dark-bg hover-bg ts-meta" data-tsmeta="mma"><span>MMA</span></td>
+          <td class="hover-bg blank-td"><span></span></td>
+          <td class="dark-bg blank-td"><span></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center mt-3">
+      <a href="#" class="primary-btn btn-normal" onclick="downloadSchedule('toledo_table', 'horario-sede-central.png'); return false;">Descargar horario</a>
+    </div>
+  </div>
+-->
+
 <!------------------ TABLA TOLEDO ------------------>
             <div class="horario-card" id="toledo_table">
               <h2 class="horario-card-title">Sparta M.M.A.</h2>
@@ -286,8 +361,10 @@ td{padding-top:5px !important;padding-bottom:5px !important;}}
                     - Las clases del viernes llevan un `<span class="disc-sub">`
                       con el nombre de la sesión (Shark Tank / War Room). Todas las
                       filas tienen la misma altura fija, con o sin ese subtítulo.
-                    - La clase `divider-row` marca el corte entre el turno de
-                      mañana y el de tarde con una línea roja.
+                    - La fila `divider-spacer` (celda con colspan="6") marca el
+                      corte entre el turno de mañana y el de tarde con una franja
+                      roja sólida; no se usan bordes para evitar huecos entre
+                      celdas.
                     Repite estas reglas en cualquier tabla de horario que se copie.
                   -->
                   <tbody>
@@ -323,7 +400,10 @@ td{padding-top:5px !important;padding-bottom:5px !important;}}
                       <td class="disc-blank">&ndash;</td>
                       <td class="disc-blank">&ndash;</td>
                     </tr> -->
-                    <tr class="divider-row">
+                    <tr class="divider-spacer">
+                      <td colspan="6"></td>
+                    </tr>
+                    <tr>
                       <td class="disc-time">19:00 - 20:00</td>
                       <td class="disc-grap ts-meta" data-tsmeta="grap">Grappling</td>
                       <td class="disc-bjj ts-meta" data-tsmeta="bjj">BJJ</td>

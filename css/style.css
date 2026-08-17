@@ -2120,8 +2120,11 @@ a:hover {
   vertical-align: middle;
 }
 
-.class-timetable.horario-colored table tbody tr.divider-row td {
-  border-top: 3px solid #e41c1f;
+.class-timetable.horario-colored table tbody tr.divider-spacer td {
+  height: 4px;
+  padding: 0;
+  border: none;
+  background: #e41c1f;
 }
 
 .class-timetable.horario-colored table tbody tr td.disc-time {

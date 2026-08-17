@@ -2125,6 +2125,9 @@ a:hover {
   padding: 0;
   border: none;
   background: #e41c1f;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
 }
 
 .class-timetable.horario-colored table tbody tr td.disc-time {
@@ -2232,6 +2235,9 @@ a:hover {
     height: 60px;
     font-size: 11px;
     padding: 4px;
+  }
+  .class-timetable.horario-colored table tbody tr.divider-spacer td {
+    height: 2px;
   }
   .horario-legend {
     gap: 18px;

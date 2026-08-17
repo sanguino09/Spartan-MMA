@@ -501,15 +501,11 @@ function downloadSchedule(wrapperId, filename) {
         return;
     }
 
-    var table = wrapper.querySelector('table');
-    if (!table) {
-        console.warn('No se encontró la tabla dentro del contenedor:', wrapperId);
-        return;
-    }
+    var target = wrapper.classList.contains('horario-card') ? wrapper : (wrapper.querySelector('table') || wrapper);
 
     var scale = Math.max(window.devicePixelRatio || 1, 2);
 
-    html2canvas(table, {
+    html2canvas(target, {
         backgroundColor: '#000',
         scale: scale,
         useCORS: true

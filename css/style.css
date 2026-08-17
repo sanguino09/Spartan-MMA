@@ -2073,41 +2073,19 @@ a:hover {
 /*---------------------
   Horario Colored Table (Class Timetable page)
 -----------------------*/
-.horario-title-block {
+.horario-card {
+  background: #000000;
+  padding: 35px 30px 30px;
+}
+
+.horario-card-title {
+  color: #e41c1f;
   text-align: center;
-  margin-bottom: 40px;
-}
-
-.horario-title-block .htb-line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.horario-title-block .htb-line .line {
-  display: inline-block;
-  width: 60px;
-  height: 2px;
-  background: #e41c1f;
-}
-
-.horario-title-block h2 {
-  color: #ffffff;
-  font-size: 38px;
+  font-size: 44px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-}
-
-.horario-title-block h3 {
-  color: #e41c1f;
-  font-size: 18px;
-  font-weight: 600;
   letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-top: 10px;
+  margin: 0 0 25px;
 }
 
 .class-timetable.horario-colored {
@@ -2119,6 +2097,7 @@ a:hover {
   border-collapse: collapse;
   width: 100%;
   min-width: 620px;
+  table-layout: fixed;
 }
 
 .class-timetable.horario-colored table thead tr th {
@@ -2129,14 +2108,20 @@ a:hover {
 }
 
 .class-timetable.horario-colored table tbody tr td {
-  width: auto;
+  box-sizing: border-box;
+  height: 72px;
   border: 1px solid #2b2b2b;
-  padding: 16px 6px;
+  padding: 6px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 14px;
   text-align: center;
+  vertical-align: middle;
+}
+
+.class-timetable.horario-colored table tbody tr.divider-row td {
+  border-top: 3px solid #e41c1f;
 }
 
 .class-timetable.horario-colored table tbody tr td.disc-time {
@@ -2159,7 +2144,7 @@ a:hover {
 }
 
 .class-timetable.horario-colored table tbody tr td.disc-mma {
-  background: #e41c1f;
+  background: #6e6e6e;
   color: #ffffff;
 }
 
@@ -2179,17 +2164,12 @@ a:hover {
   opacity: 0.85;
 }
 
-.class-timetable.horario-colored table tbody tr td.disc-legend-cell {
-  background: #151515;
-  border: none;
-  padding: 25px 10px 5px;
-}
-
 .horario-legend {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  margin-top: 25px;
 }
 
 .horario-legend .hl-item {
@@ -2203,6 +2183,7 @@ a:hover {
   height: 20px;
   display: inline-block;
   border-radius: 3px;
+  border: 1px solid #2b2b2b;
 }
 
 .horario-legend .hl-swatch.bjj {
@@ -2217,7 +2198,7 @@ a:hover {
 }
 
 .horario-legend .hl-swatch.mma {
-  background: #e41c1f;
+  background: #6e6e6e;
 }
 
 .horario-legend .hl-item span {
@@ -2229,15 +2210,16 @@ a:hover {
 }
 
 @media screen and (max-width: 576px) {
-  .horario-title-block h2 {
-    font-size: 26px;
+  .horario-card {
+    padding: 25px 15px 20px;
   }
-  .horario-title-block .htb-line .line {
-    width: 30px;
+  .horario-card-title {
+    font-size: 28px;
   }
   .class-timetable.horario-colored table tbody tr td {
+    height: 60px;
     font-size: 11px;
-    padding: 10px 4px;
+    padding: 4px;
   }
   .horario-legend {
     gap: 18px;

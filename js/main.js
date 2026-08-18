@@ -512,18 +512,29 @@ function downloadSchedule(wrapperId, filename) {
     var restore = null;
     if (scrollable && scrollable.scrollWidth > scrollable.clientWidth) {
         var prevTargetWidth = target.style.width;
+        var prevMaxWidth = target.style.maxWidth;
         var prevOverflow = scrollable.style.overflow;
         var prevOverflowX = scrollable.style.overflowX;
         var prevScrollLeft = scrollable.scrollLeft;
 
-        var chrome = target.offsetWidth - scrollable.clientWidth;
-        target.style.width = (scrollable.scrollWidth + chrome) + 'px';
+        // El padding se lee del estilo calculado (no restando anchos "en caliente" de
+        // dos elementos distintos) para que el resultado sea el mismo a izquierda y
+        // derecha en cualquier dispositivo.
+        var targetStyle = window.getComputedStyle(target);
+        var horizontalChrome = parseFloat(targetStyle.paddingLeft) + parseFloat(targetStyle.paddingRight) +
+            parseFloat(targetStyle.borderLeftWidth) + parseFloat(targetStyle.borderRightWidth);
+        var innerTable = scrollable.querySelector('table');
+        var contentWidth = innerTable ? innerTable.scrollWidth : scrollable.scrollWidth;
+
+        target.style.maxWidth = 'none';
+        target.style.width = (contentWidth + horizontalChrome) + 'px';
         scrollable.style.overflow = 'visible';
         scrollable.style.overflowX = 'visible';
         scrollable.scrollLeft = 0;
 
         restore = function () {
             target.style.width = prevTargetWidth;
+            target.style.maxWidth = prevMaxWidth;
             scrollable.style.overflow = prevOverflow;
             scrollable.style.overflowX = prevOverflowX;
             scrollable.scrollLeft = prevScrollLeft;

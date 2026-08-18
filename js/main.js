@@ -503,23 +503,41 @@ function downloadSchedule(wrapperId, filename) {
 
     var target = wrapper.classList.contains('horario-card') ? wrapper : (wrapper.querySelector('table') || wrapper);
 
+    // En móvil el horario tiene scroll horizontal (overflow-x: auto) para que quepa en
+    // pantalla. html2canvas recorta la captura según el tamaño real (offsetWidth) del
+    // elemento en la página: no basta con quitar el overflow del contenedor interno,
+    // hay que ensanchar de verdad el propio "target" para que quepa la tabla entera,
+    // capturar, y devolverlo todo a como estaba justo después.
+    var scrollable = target.querySelector('.horario-colored');
+    var restore = null;
+    if (scrollable && scrollable.scrollWidth > scrollable.clientWidth) {
+        var prevTargetWidth = target.style.width;
+        var prevOverflow = scrollable.style.overflow;
+        var prevOverflowX = scrollable.style.overflowX;
+        var prevScrollLeft = scrollable.scrollLeft;
+
+        var chrome = target.offsetWidth - scrollable.clientWidth;
+        target.style.width = (scrollable.scrollWidth + chrome) + 'px';
+        scrollable.style.overflow = 'visible';
+        scrollable.style.overflowX = 'visible';
+        scrollable.scrollLeft = 0;
+
+        restore = function () {
+            target.style.width = prevTargetWidth;
+            scrollable.style.overflow = prevOverflow;
+            scrollable.style.overflowX = prevOverflowX;
+            scrollable.scrollLeft = prevScrollLeft;
+        };
+    }
+
     var scale = Math.max(window.devicePixelRatio || 1, 2);
 
     html2canvas(target, {
         backgroundColor: '#000',
         scale: scale,
-        useCORS: true,
-        windowWidth: Math.max(document.documentElement.clientWidth, 720),
-        onclone: function (clonedDoc) {
-            // En móvil el horario tiene scroll horizontal (overflow-x: auto) para que
-            // quepa en pantalla; si no se quita aquí, html2canvas solo captura la parte
-            // visible en ese momento en vez de la tabla completa.
-            clonedDoc.querySelectorAll('.horario-colored').forEach(function (el) {
-                el.style.overflow = 'visible';
-                el.style.overflowX = 'visible';
-            });
-        }
+        useCORS: true
     }).then(function (canvas) {
+        if (restore) { restore(); }
         var link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
         link.download = filename || 'horario.png';
@@ -527,6 +545,7 @@ function downloadSchedule(wrapperId, filename) {
         link.click();
         document.body.removeChild(link);
     }).catch(function (error) {
+        if (restore) { restore(); }
         console.error('No se pudo generar la imagen del horario:', error);
     });
 }

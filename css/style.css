@@ -2175,6 +2175,11 @@ a:hover {
   opacity: 0.85;
 }
 
+.class-timetable.horario-colored table tbody tr td.disc-mma .disc-sub {
+  color: #ffffff;
+  opacity: 1;
+}
+
 .horario-legend {
   display: flex;
   justify-content: center;

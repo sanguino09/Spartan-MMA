@@ -508,7 +508,17 @@ function downloadSchedule(wrapperId, filename) {
     html2canvas(target, {
         backgroundColor: '#000',
         scale: scale,
-        useCORS: true
+        useCORS: true,
+        windowWidth: Math.max(document.documentElement.clientWidth, 720),
+        onclone: function (clonedDoc) {
+            // En móvil el horario tiene scroll horizontal (overflow-x: auto) para que
+            // quepa en pantalla; si no se quita aquí, html2canvas solo captura la parte
+            // visible en ese momento en vez de la tabla completa.
+            clonedDoc.querySelectorAll('.horario-colored').forEach(function (el) {
+                el.style.overflow = 'visible';
+                el.style.overflowX = 'visible';
+            });
+        }
     }).then(function (canvas) {
         var link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');

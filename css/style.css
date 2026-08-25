@@ -2166,6 +2166,11 @@ a:hover {
   color: #ffffff;
 }
 
+.class-timetable.horario-colored table tbody tr td.disc-mma-jr {
+  background: #c9a227;
+  color: #111111;
+}
+
 .class-timetable.horario-colored table tbody tr td.disc-blank {
   background: #0a0a0a;
   color: #4a4a4a;
@@ -2184,6 +2189,11 @@ a:hover {
 
 .class-timetable.horario-colored table tbody tr td.disc-mma .disc-sub {
   color: #ffffff;
+  opacity: 1;
+}
+
+.class-timetable.horario-colored table tbody tr td.disc-mma-jr .disc-sub {
+  color: #2a1f00;
   opacity: 1;
 }
 
@@ -2226,6 +2236,10 @@ a:hover {
 
 .horario-legend .hl-swatch.boxeo {
   background: #7a1216;
+}
+
+.horario-legend .hl-swatch.mma-jr {
+  background: #c9a227;
 }
 
 .horario-legend .hl-item span {

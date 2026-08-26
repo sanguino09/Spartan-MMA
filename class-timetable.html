@@ -263,12 +263,13 @@ tr.divider-spacer td{padding-top:0 !important;padding-bottom:0 !important;}}
         <div class="row">
           <div class="col-lg-12">
 
-<!-- Horario activo (formato anterior). El horario nuevo con colores por disciplina
-     (BJJ/Grappling/MMA/Boxeo) está listo y guardado más abajo, comentado, para
-     activarlo en septiembre. -->
+<!--
+  HORARIO ANTIGUO (formato anterior, guardado por si hace falta volver a él).
+  Sustituido por el horario nuevo con colores por disciplina, que es el que se
+  muestra ahora.
 
-<!------------------ TABLA TOLEDO ------------------>
-            <div class="class-timetable" id="toledo_table">
+  TABLA TOLEDO (ANTIGUA)
+            <div class="class-timetable" id="toledo_table_old">
               <table>
                 <h2 style="color: white; display: flex; justify-content: center; margin-bottom: 1vh;">Horario Sparta Headquarters</h2>
                 <thead>
@@ -336,17 +337,9 @@ tr.divider-spacer td{padding-top:0 !important;padding-bottom:0 !important;}}
                 <a href="#" class="primary-btn btn-normal" onclick="downloadSchedule('toledo_table', 'horario-sede-central.png'); return false;">Descargar horario</a>
               </div>
             </div>
+-->
 
-<!--
-  HORARIO NUEVO CON COLORES (para activar en septiembre)
-  BJJ blanco / Grappling negro con borde / MMA gris / Boxeo rojo oscuro / MMA Juvenil
-  dorado, con leyenda, línea roja divisoria mañana-tarde y descarga en PNG que incluye
-  todo. El viernes usa los nombres especiales "Grappling Shark Tank" / "MMA War Room",
-  con el mismo estilo de subtítulo (disc-sub) que ahora usa también MMA Juvenil (martes
-  y jueves de 18:00 a 19:00) y Boxeo ("Adaptado a MMA" debajo del nombre). Para
-  reactivarlo: quitar este comentario y el de arriba que envuelve el horario antiguo
-  (o borrar el bloque antiguo si ya no hace falta conservarlo).
-
+<!------------------ TABLA TOLEDO ------------------>
   <div class="horario-card" id="toledo_table">
     <h2 class="horario-card-title">Sparta M.M.A.</h2>
     <div class="class-timetable horario-colored">
@@ -439,7 +432,6 @@ tr.divider-spacer td{padding-top:0 !important;padding-bottom:0 !important;}}
   <div class="text-center mt-3">
     <a href="#" class="primary-btn btn-normal" onclick="downloadSchedule('toledo_table', 'horario-sede-central.png'); return false;">Descargar horario</a>
   </div>
--->
 
 <!------------------ TABLA LIMITE ------------------>
             <!--

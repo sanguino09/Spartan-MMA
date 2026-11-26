@@ -92,7 +92,6 @@ All main UI behavior runs inside a jQuery IIFE `(function($) { ... })(jQuery)`:
 3. **Off-canvas menu** - `.canvas-open` / `.canvas-close` toggle mobile nav
 4. **Search modal** - `.search-switch` opens, `.search-close-switch` closes
 5. **Masonry gallery** - Initialized on `.gallery` container
-6. **QR overlay** - Dynamically injects QR code nav item and overlay for MAAT booking
 7. **OWL Carousel sliders** - Hero (`.hs-slider`), Team (`.ts-slider`), Testimonial (`.ts_slider`), Brands (`.brand-carousel`)
 8. **Hero video autoplay** - Robust retry logic with visibility/intersection observers
 9. **Magnific Popup** - `.image-popup` for images, `.video-popup` for iframes
